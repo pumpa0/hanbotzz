@@ -85,11 +85,6 @@ const {
   Darkjokes
 } = require("dhn-api")
 
-//rpg database\\
- let _limit = JSON.parse(fs.readFileSync('./storage/user/limit.json'));
- let _buruan = JSON.parse(fs.readFileSync('./storage/user/hasil_buruan.json'));
- let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
-
 //Database omther\\
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
 const autostick = JSON.parse(fs.readFileSync('./database/autostickpc.json'));
