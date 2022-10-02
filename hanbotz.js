@@ -6487,7 +6487,6 @@ if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
 let used = db.data.users[m.sender].game
 menux = `
-★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Limit :  ${useq}
 ➼ Game :  ${used}
@@ -6499,7 +6498,7 @@ let buttons = [
 ]
 
 let buttonMessage = {
-document: " ",
+document: fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
 fileName: "WhatsApp Bot", 
 mimetype: `application/pdf`,
 fileLength: "1",
