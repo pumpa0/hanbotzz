@@ -414,20 +414,15 @@ fs.writeFileSync('./database/database.json', JSON.stringify(global.db, null, 2))
 
 	//reset limit every 12 hours\\
         let cron = require('node-cron')
-        cron.schedule('00 23 * * *', () => {
-            let user = Object.keys(global.db.data.users)
-            let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
-            for (let jid of user) global.db.data.users[jid].limit = limitUser
-            console.log('Reseted Limit')
+        cron.schedule('00 00 * * *', () => {
+        	exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
         }, {
             scheduled: true,
             timezone: "Asia/Jakarta"
         })
-        cron.schedule('00 22 * * *', () => {
-            let user = Object.keys(global.db.data.users)
-            let limitGame = isPremium ? global.limitawal.premium : global.limitawal.game
-            for (let jid of user) global.db.data.users[jid].game = limitGame
-            console.log('Reseted Limit')
+        let cron = require('node-cron')
+        cron.schedule('00 12 * * *', () => {
+        	exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
         }, {
             scheduled: true,
             timezone: "Asia/Jakarta"
@@ -977,8 +972,6 @@ let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indon
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
 }
-
-const semuamenu = [`${prefix}menu`,`${prefix}linkgc`,`${prefix}ephemeral`,`${prefix}setgcpp`,`${prefix}setname`,`${prefix}setdesc`,`${prefix}group`,`${prefix}revoke`,`${prefix}editinfo`,`${prefix}add`,`${prefix}kick`,`${prefix}hidetag`,`${prefix}tagall`,`${prefix}promote`,`${prefix}demote`,`${prefix}tictactoe`,`${prefix}deltictactoe`,`${prefix}tebak gambar`,`${prefix}tebak kata`,`${prefix}tebak kalimat`,`${prefix}tebak lagu`,`${prefix}tebak lirik`,`${prefix}caklontong`,`${prefix}math`,`${prefix}suitpvp`,`${prefix}tiktok`,`${prefix}tiktokaudio`,`${prefix}twitter`,`${prefix}twitteraudio`,`${prefix}mediafire`,`${prefix}gitclone`,`${prefix}play`,`${prefix}ytmp3`,`${prefix}ytmp4`,`${prefix}ytsearch`,`${prefix}ice`,`${prefix}watercolor`,`${prefix}multicolor`,`${prefix}snow`,`${prefix}harrypot`,`${prefix}harrypotter`,`${prefix}brokenglass`,`${prefix}waterpipe`,`${prefix}spooky`,`${prefix}circuit`,`${prefix}metallic`,`${prefix}demon`,`${prefix}sparklechristmas`,`${prefix}christmas`,`${prefix}3dchristmas`,`${prefix}3dbox`,`${prefix}candy`,`${prefix}blackpinkneon`,`${prefix}deepsea`,`${prefix}scifi`,`${prefix}fiction`,`${prefix}berry`,`${prefix}fruitjuice`,`${prefix}biscuit`,`${prefix}wood`,`${prefix}chocolate`,`${prefix}matrix`,`${prefix}blood`,`${prefix}halloween`,`${prefix}wicker`,`${prefix}darkgold`,`${prefix}firework`,`${prefix}skeleton`,`${prefix}sand`,`${prefix}glue`,`${prefix}leaves`,`${prefix}magma`,`${prefix}lava`,`${prefix}rock`,`${prefix}lion`,`${prefix}3dneon`,`${prefix}greenneon`,`${prefix}bokeh`,`${prefix}holographic`,`${prefix}bear`,`${prefix}wolf`,`${prefix}joker`,`${prefix}dropwater`,`${prefix}dropwater2`,`${prefix}thewall`,`${prefix}neonlight`,`${prefix}natural`,`${prefix}carbon`,`${prefix}pencil`,`${prefix}blackpink2`,`${prefix}neon`,`${prefix}neonlight2`,`${prefix}toxic`,`${prefix}strawberry`,`${prefix}discovery`,`${prefix}1917`,`${prefix}bloodglas`,`${prefix}underwater`,`${prefix}textmaker`,`${prefix}honey`,`${prefix}waterdrop`,`${prefix}lion2`,`${prefix}papercut`,`${prefix}transformer`,`${prefix}neondevil`,`${prefix}3davengers`,`${prefix}3dstone`,`${prefix}3dstone2`,`${prefix}summertime`,`${prefix}thunder`,`${prefix}window`,`${prefix}graffiti`,`${prefix}graffitibike`,`${prefix}pornhub`,`${prefix}glitch`,`${prefix}blackpink`,`${prefix}glitch2`,`${prefix}glitch3`,`${prefix}3dspace`,`${prefix}sci_fi`,`${prefix}ancient`,`${prefix}fabric`,`${prefix}hoorror`,`${prefix}whitebear`,`${prefix}juice`,`${prefix}batman`,`${prefix}multicolor`,`${prefix}collwall`,`${prefix}wonderful`,`${prefix}cool`,`${prefix}sketch`,`${prefix}marvel`,`${prefix}foggy`,`${prefix}writing`,`${prefix}halloweenfire`,`${prefix}halloween`,`${prefix}watercolor`,`${prefix}classic`,`${prefix}lyrics`,`${prefix}gimage`,`${prefix}pinterest`,`${prefix}image`,`${prefix}film`,`${prefix}wallpaper`,`${prefix}tvsearch`,`${prefix}wikimedia`,`${prefix}ringtone`,`${prefix}webtoon`,`${prefix}anime`,`${prefix}animestory`,`${prefix}manga`,`${prefix}wattpad`,`${prefix}drakor`,`${prefix}wikipedia`,`${prefix}toimage`,`${prefix}take`,`${prefix}tovideo`,`${prefix}togif`,`${prefix}tourl`,`${prefix}tovn`,`${prefix}tomp3`,`${prefix}toaudio`,`${prefix}tinyurl`,`${prefix}styletext`,`${prefix}quotebijak`,`${prefix}quotefakta`,`${prefix}quotebacot`,`${prefix}quoteilham`,`${prefix}quotefakboy`,`${prefix}quotesindiran`,`${prefix}fliptext`,`${prefix}toletter`,`${prefix}translate`,`${prefix}sticker`,`${prefix}ttp`,`${prefix}attp`,`${prefix}smeme`,`${prefix}smeme2`,`${prefix}emojimix`,`${prefix}gura`,`${prefix}doge`,`${prefix}patrick`,`${prefix}lovesticker`,`${prefix}volume`,`${prefix}tempo`,`${prefix}bass`,`${prefix}blown`,`${prefix}deep`,`${prefix}earrape`,`${prefix}fast`,`${prefix}fat`,`${prefix}nightcore`,`${prefix}reverse`,`${prefix}robot`,`${prefix}slow`,`${prefix}squirrel`,`${prefix}loli`,`${prefix}animenom`,`${prefix}goose`,`${prefix}avatar`,`${prefix}tickle`,`${prefix}gecg`,`${prefix}feed`,`${prefix}naruto`,`${prefix}neko2`,`${prefix}waifu`,`${prefix}waifu2`,`${prefix}awoo2`,`${prefix}shinobu`,`${prefix}waifu3`,`${prefix}foxgirl`,`${prefix}megumin2`,`${prefix}smug2`,`${prefix}couplepp`,`${prefix}animeslap`,`${prefix}animespank`,`${prefix}animepat`,`${prefix}animeneko`,`${prefix}animekiss`,`${prefix}animewlp`,`${prefix}animecuddle`,`${prefix}animecry`,`${prefix}animekill`,`${prefix}animelick`,`${prefix}animebite`,`${prefix}animeyeet`,`${prefix}animebully`,`${prefix}animebonk`,`${prefix}animewink`,`${prefix}animepoke`,`${prefix}animesmile`,`${prefix}animewave`,`${prefix}animeawoo`,`${prefix}animeblush`,`${prefix}animesmug`,`${prefix}animeglomp`,`${prefix}animehappy`,`${prefix}animedance`,`${prefix}animecringe`,`${prefix}animehighfive`,`${prefix}animehandhold`,`${prefix}animemegumin`,`${prefix}bully`,`${prefix}cuddle`,`${prefix}cry`,`${prefix}hug`,`${prefix}awoo`,`${prefix}kiss`,`${prefix}lick`,`${prefix}pat`,`${prefix}smug`,`${prefix}bonk`,`${prefix}yeet`,`${prefix}blush`,`${prefix}smile`,`${prefix}wave`,`${prefix}highfive`,`${prefix}handhold`,`${prefix}nom`,`${prefix}glomp`,`${prefix}bite`,`${prefix}slap`,`${prefix}kill`,`${prefix}happy`,`${prefix}wink`,`${prefix}poke`,`${prefix}dance`,`${prefix}cringe`,`${prefix}neko`,`${prefix}sound1`,`${prefix}sound2`,`${prefix}sound3`,`${prefix}sound4`,`${prefix}sound5`,`${prefix}sound6`,`${prefix}sound7`,`${prefix}sound8`,`${prefix}sound9`,`${prefix}sound10`,`${prefix}sound11`,`${prefix}sound12`,`${prefix}sound13`,`${prefix}sound14`,`${prefix}sound15`,`${prefix}sound16`,`${prefix}sound17`,`${prefix}sound18`,`${prefix}sound19`,`${prefix}sound20`,`${prefix}sound21`,`${prefix}sound22`,`${prefix}sound23`,`${prefix}sound24`,`${prefix}sound25`,`${prefix}sound26`,`${prefix}sound27`,`${prefix}sound28`,`${prefix}sound29`,`${prefix}sound30`,`${prefix}sound31`,`${prefix}sound32`,`${prefix}sound33`,`${prefix}sound34`,`${prefix}sound35`,`${prefix}sound36`,`${prefix}sound37`,`${prefix}sound38`,`${prefix}sound39`,`${prefix}sound40`,`${prefix}sound41`,`${prefix}sound42`,`${prefix}sound43`,`${prefix}sound44`,`${prefix}sound45`,`${prefix}sound46`,`${prefix}sound47`,`${prefix}sound48`,`${prefix}sound49`,`${prefix}sound50`,`${prefix}sound51`,`${prefix}sound52`,`${prefix}sound53`,`${prefix}sound54`,`${prefix}sound55`,`${prefix}sound56`,`${prefix}sound57`,`${prefix}sound58`,`${prefix}sound59`,`${prefix}sound60`,`${prefix}sound61`,`${prefix}sound62`,`${prefix}sound63`,`${prefix}sound64`,`${prefix}sound65`,`${prefix}sound66`,`${prefix}sound67`,`${prefix}sound68`,`${prefix}sound69`,`${prefix}sound70`,`${prefix}sound71`,`${prefix}sound72`,`${prefix}sound73`,`${prefix}sound74`,`${prefix}sound75`,`${prefix}sound76`,`${prefix}sound77`,`${prefix}sound78`,`${prefix}sound79`,`${prefix}sound80`,`${prefix}sound81`,`${prefix}sound82`,`${prefix}sound83`,`${prefix}sound84`,`${prefix}sound85`,`${prefix}sound86`,`${prefix}sound87`,`${prefix}sound88`,`${prefix}sound89`,`${prefix}sound90`,`${prefix}sound91`,`${prefix}sound92`,`${prefix}sound93`,`${prefix}sound94`,`${prefix}sound95`,`${prefix}sound96`,`${prefix}sound97`,`${prefix}sound98`,`${prefix}sound99`,`${prefix}sound100`,`${prefix}sound101`,`${prefix}sound102`,`${prefix}sound103`,`${prefix}sound104`,`${prefix}sound105`,`${prefix}sound106`,`${prefix}sound107`,`${prefix}sound108`,`${prefix}sound109`,`${prefix}sound110`,`${prefix}sound111`,`${prefix}sound112`,`${prefix}sound113`,`${prefix}sound114`,`${prefix}sound115`,`${prefix}sound116`,`${prefix}sound117`,`${prefix}sound118`,`${prefix}sound119`,`${prefix}sound120`,`${prefix}sound121`,`${prefix}sound122`,`${prefix}sound123`,`${prefix}sound124`,`${prefix}sound125`,`${prefix}sound126`,`${prefix}sound127`,`${prefix}sound128`,`${prefix}sound129`,`${prefix}sound130`,`${prefix}sound131`,`${prefix}sound132`,`${prefix}sound133`,`${prefix}sound134`,`${prefix}sound135`,`${prefix}sound136`,`${prefix}sound137`,`${prefix}sound138`,`${prefix}sound139`,`${prefix}sound140`,`${prefix}sound141`,`${prefix}sound142`,`${prefix}sound143`,`${prefix}sound144`,`${prefix}sound145`,`${prefix}sound146`,`${prefix}sound147`,`${prefix}sound148`,`${prefix}sound149`,`${prefix}sound150`,`${prefix}sound151`,`${prefix}sound152`,`${prefix}sound153`,`${prefix}sound154`,`${prefix}sound155`,`${prefix}sound156`,`${prefix}sound157`,`${prefix}sound158`,`${prefix}sound159`,`${prefix}sound160`,`${prefix}sound161`,`${prefix}tarot`,`${prefix}fengshui`,`${prefix}haribaik`,`${prefix}harisangar`,`${prefix}harisial`,`${prefix}nagahari`,`${prefix}arahrezeki`,`${prefix}peruntungan`,`${prefix}weton`,`${prefix}karakter`,`${prefix}keberuntungan`,`${prefix}memancing`,`${prefix}masasubur`,`${prefix}zodiak`,`${prefix}shio`,`${prefix}nomorhoki`,`${prefix}artimimpi`,`${prefix}artinama`,`${prefix}ramaljodoh`,`${prefix}ramaljodohbali`,`${prefix}suamiistri`,`${prefix}ramalcinta`,`${prefix}cocoknama`,`${prefix}pasangan`,`${prefix}jadiannikah`,`${prefix}sifatusaha`,`${prefix}rezeki`,`${prefix}pekerjaan`,`${prefix}nasib`,`${prefix}penyakit`]
 
 switch(command) {
 
@@ -6429,31 +6422,84 @@ if (isBanChat) return reply(mess.banChat)
 reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
-case 'menu': {
+case 'statusss': {
+	if (isBan) return reply(mess.ban)
+	if (isBanChat) return reply(mess.banChat)
+                const used = process.memoryUsage()
+                const cpus = os.cpus().map(cpu => {
+                    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+			        return cpu
+                })
+                const cpu = cpus.reduce((last, cpu, _, { length }) => {
+                    last.total += cpu.total
+                    last.speed += cpu.speed / length
+                    last.times.user += cpu.times.user
+                    last.times.nice += cpu.times.nice
+                    last.times.sys += cpu.times.sys
+                    last.times.idle += cpu.times.idle
+                    last.times.irq += cpu.times.irq
+                    return last
+                }, {
+                    speed: 0,
+                    total: 0,
+                    times: {
+			            user: 0,
+			            nice: 0,
+			            sys: 0,
+			            idle: 0,
+			            irq: 0
+                }
+                })
+                let timestamp = speed()
+                let latensi = speed() - timestamp
+                neww = performance.now()
+                oldd = performance.now()
+                let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
+                respon = `
+*- B O T  I N F O -*
+• Nama: HanBotz
+• Owner: Unknown
+• Lib: Baileys Multidevice
+• Language: JavaScript
+
+*- D A T A B A S E -*
+• Grup: ${anu.length}
+• User: -
+
+*- H I T -*
+• Harian: ${jumlahharian}
+• Total: ${jumlahcmd}
+
+*- R U N T I M E -*
+${runtime(process.uptime())}
+
+*- S E R V E R -*
+• Ram: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+
+*⫹⫺ NodeJS Memory Usage*
+${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
+                `.trim()
+                reply(respon)
+            }
+            break
+case 'menu': case 'help': {
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
 let used = db.data.users[m.sender].game
-
 menux = `
 ★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Limit :  ${useq}
 ➼ Game :  ${used}
-
-★ *Bot Info*
-➼ Hit Harian : ${jumlahharian}
-➼ Total Hit : ${jumlahcmd}
-➼ Runtime : ${runtime(process.uptime())}
 `
-
 let buttons = [
 {buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
 {buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
 ]
 
 let buttonMessage = {
-document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
+document: fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'), 
 fileName: "WhatsApp Bot", 
 mimetype: `application/pdf`,
 fileLength: "1",
@@ -6591,8 +6637,7 @@ const listMessage = {
 - Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
 - Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
 
-
-Dev by *_Han_* | Find Me On instagram.com/terserah_bomat`,
+Dev by *_Han_* | Find Me On instagram.com/terserah_bomat\n`,
   footer: "© HanBotz",
   title: `Hai *${pushname}*`,
   buttonText: "Pilih Menu",
@@ -7854,10 +7899,11 @@ case 'setppgc2': {
             }
             }
             break
-
-case 'testtt':
-hanbotz.sendMessage("6285731855426@s.whatsapp.net", `anjay`, {quoted: fgclink})
-break
+case 'testtt': {
+	let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
+	reply(util.format(anu))
+	}
+	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
@@ -7909,7 +7955,7 @@ break
                 }
               
 if (command && m.isGroup) {
-	reply (`*${prefix}${command}*\n\nTidak ada di menu`)
+	reply (`*${prefix}${command}*\n\nTidak ada di ${prefix}menu`)
 	}
 
 if (m.mentionedJid[0] === botNumber) {
