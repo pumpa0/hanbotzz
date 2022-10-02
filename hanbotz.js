@@ -420,7 +420,6 @@ fs.writeFileSync('./database/database.json', JSON.stringify(global.db, null, 2))
             scheduled: true,
             timezone: "Asia/Jakarta"
         })
-        let cron = require('node-cron')
         cron.schedule('00 12 * * *', () => {
         	exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
         }, {
