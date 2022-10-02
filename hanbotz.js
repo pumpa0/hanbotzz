@@ -6463,7 +6463,7 @@ case 'statusss': {
 
 *- D A T A B A S E -*
 • Grup: ${anu.length}
-• User: -
+• User: ~
 
 *- H I T -*
 • Harian: ${jumlahharian}
@@ -6494,11 +6494,12 @@ menux = `
 `
 let buttons = [
 {buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
+{buttonId: `/statusss`, buttonText: {displayText: 'Status'}, type: 1},
 {buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
 ]
 
 let buttonMessage = {
-document: fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'), 
+document: " ",
 fileName: "WhatsApp Bot", 
 mimetype: `application/pdf`,
 fileLength: "1",
