@@ -99,42 +99,6 @@ return list[Math.floor(list.length * Math.random())]
 //document randomizer
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
-
-    hanbotz.ev.on('group-participants.update', async (anu) => {
-        console.log(anu)
-        try {
-            let metadata = await hanbotz.groupMetadata(anu.id)
-            let participants = anu.participants
-            for (let num of participants) {
-                // Get Profile Picture User
-                try {
-                    ppuser = await hanbotz.profilePictureUrl(num, 'image')
-                } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-
-                // Get Profile Picture Group
-                try {
-                    ppgroup = await hanbotz.profilePictureUrl(anu.id, 'image')
-                } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-// get pict grup
-try {
-       ppgc = await hanbotz.profilePictureUrl(pea[0].id, 'image')
-       } catch {
-       ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-       }
-      if (anu.action == 'add') {
-                  //  hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
-                } else if (anu.action == 'remove') {
-                 //   hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
-                } 
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    })
 	
     //Setting\\
     hanbotz.decodeJid = (jid) => {

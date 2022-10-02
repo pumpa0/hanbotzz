@@ -7535,7 +7535,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'botz': case 'hanbotz': case 'bot': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-	if (!text) throw `Hi`
+	if (!text) throw `Hai`
     hanbotz.sendPresenceUpdate('composing', m.chat)
 	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id&cf=false`)
 	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
@@ -7544,6 +7544,12 @@ if (isBanChat) return reply(mess.banChat)
 	let ana = await fetchJson (`https://simsimi.info/api/?lc=id&text=${text}`)
 	if (ana.message === "Saya tidak tahu bagaimana menjawab. Ajari aku jawabannya.") {
 		return reply(`Aku tidak mengerti`)
+		}
+	if (ana.message == "Emotikon tidak dapat dipahami.") {
+		return reply (`Emoji tidak dapat dipahami`)
+		}
+	if (anu.success == "Request path contains unescaped characters") {
+		return reply (`Emoji tidak dapat dipahami`)
 		}
 		let sim = [anu.success, ana.message]
     let jawab = sim[Math.floor(Math.random() * sim.length)]
