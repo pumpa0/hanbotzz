@@ -172,47 +172,6 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autorereplyw = true
 
-hanbotz.ev.on('group-participants.update', async (anu) => {
-        console.log(anu)
-        try {
-            let metadata = await hanbotz.groupMetadata(anu.id)
-            let participants = anu.participants
-            for (let num of participants) {
-                // Get Profile Picture User
-                try {
-                    ppuser = await hanbotz.profilePictureUrl(num, 'image')
-                } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-
-                // Get Profile Picture Group
-                try {
-                    ppgroup = await hanbotz.profilePictureUrl(anu.id, 'image')
-                } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-// get pict grup
-try {
-       ppgc = await hanbotz.profilePictureUrl(pea[0].id, 'image')
-       } catch {
-       ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-       }
-       if (m.isGroup) {
-let metadata = await hanbotz.groupMetadata(m.chat)
-if (metadata.id === "120363023720252331@g.us") {
-      if (anu.action == 'add') {
-                  hanbotz.sendText(anu.id, `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, { mentions: [num] })
-                } else if (anu.action == 'remove') {
-                 hanbotz.sendText(anu.id, `@${num.split("@")[0]} Keluar Beli Gorengan`, { mentions: [num] })
-                 }
-                 }
-                } 
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    })
-
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
 		let picak = picaks[Math.floor(Math.random() * picaks.length)]
@@ -6442,22 +6401,7 @@ case 'ping': {
                 let latensi = speed() - timestamp
                 neww = performance.now()
                 oldd = performance.now()
-                let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                 respon = `
-*- B O T  I N F O -*
-• Nama: HanBotz
-• Owner: Unknown
-• Lib: Baileys Multidevice
-• Language: JavaScript
-
-*- D A T A B A S E -*
-• Grup: ${anu.length}
-• User: ~
-
-*- H I T -*
-• Harian: ${jumlahharian}
-• Total: ${jumlahcmd}
-
 *- R U N T I M E -*
 ${runtime(process.uptime())}
 
@@ -6470,7 +6414,7 @@ ${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.
                 reply(respon)
             }
             break
-case 'menu': case 'help': {
+case 'help': {
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
@@ -6512,12 +6456,12 @@ contextInfo: {
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
 }
 break
-case 'command': {
+case 'menu': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 const sections = [
                            {
-                    title: "HanBotz",
+                    title: `Hit ${jumlahharian} | Total: ${jumlahcmd}`,
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
