@@ -388,11 +388,6 @@ message: {
 }
 } 
 }
-
-const detect = (teks) => { 
-hanbotz.sendMessage(from, { text : teks, contextInfo: {"externalAdReply": { title: `Akurasi : ${anu2}`,mediaType: 3,renderLargerThumbnail: true, showAdAttribution: true, body: "Command Not Found",thumbnail: global.thumb,sourceUrl: "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}}})
-}
-	
         //Public & Self\\
         if (!hanbotz.public) {
             if (!m.key.fromMe) return
@@ -402,12 +397,6 @@ hanbotz.sendMessage(from, { text : teks, contextInfo: {"externalAdReply": { titl
         if (m.message) {
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
-	
-	// write database every 1 minute
-setInterval(() => {
-fs.writeFileSync('./database/database.json', JSON.stringify(global.db, null, 2))
-}, 60 * 1000)
-
 	//reset limit every 12 hours\\
         let cron = require('node-cron')
         cron.schedule('00 00 * * *', () => {
@@ -7836,11 +7825,6 @@ case 'setppgc2': {
             }
             }
             break
-case 'testtt': {
-	let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
-	reply(util.format(anu))
-	}
-	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
