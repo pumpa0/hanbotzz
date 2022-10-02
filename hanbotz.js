@@ -14,7 +14,9 @@ const moment = require('moment-timezone')
 const { JSDOM } = require('jsdom')
 const hikki = require('hikki-me') 
 const did = require('didyoumean') 
-var sim = require('similarity') 
+let sim = require('similarity') 
+const IkyyClient = require("ikyy");
+const Ikyy = new IkyyClient();
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const { Primbon } = require('scrape-primbon')
@@ -7854,6 +7856,12 @@ contextInfo: {
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
 }
 break
+case 'whatmusic':{ //Ngambil Dari mans :v
+let media = await quoted.download()
+let res = await Ikyy.search.whatmusic(media)
+reply(`${res.title ? "» Title : " + res.title + "\n" : ""}${res.artists ? "» Artists : " + res.artists + "\n" : ""}${res.album ? "» Album : " + res.album + "\n" : ""}${res.duration ? "» Duration : " + res.duration + "\n" : ""}${res.release ? "» Release : " + res.release + "\n" : ""}${res.genre_music ? "» Genre : " + res.genre_music + "\n" : ""}${res.sumber ? "» Sumber : " + res.sumber + "\n" : ""} ${res.message ? "» Message : " + res.message : ""}`)
+}
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
@@ -7908,13 +7916,13 @@ break
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
 anu2 = sim(command, anu) 
-detect(`*Maksud kamu ${anu || `${deff}`}?*`) 
+detect(`Maksud kamu *${anu || deff}*`) 
 }
 if (isCmd && m.isGroup) { //By Deff
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
 anu2 = sim(command, anu) 
-m.reply(`*Maksud kamu ${anu || `${deff}`}?*`) 
+m.reply(`Maksud kamu *${anu || deff}*`) 
 }
 
 if (m.mentionedJid[0] === botNumber) {
