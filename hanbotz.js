@@ -390,6 +390,10 @@ message: {
 }
 } 
 }
+
+const detect = (teks) => { 
+hanbotz.sendMessage(from, { text : teks, contextInfo: {"externalAdReply": { title: `Akurasi : ${anu2}`,mediaType: 3,renderLargerThumbnail: true, showAdAttribution: true, body: "Command Not Found",thumbnail: global.thumb,sourceUrl: "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}}})
+}
 	
         //Public & Self\\
         if (!hanbotz.public) {
@@ -7900,11 +7904,17 @@ break
                     })
                 }
               
-		if (command && m.isGroup) {
+		if (isCmd && !m.isGroup) {  //By Deff
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
-anu2 = sim(command, anu,) 
-m.reply(`Mungkin maksud kamu *${anu2}*`) 
+anu2 = sim(command, anu) 
+detect(`*Maksud kamu ${anu || `${deff}`}?*`) 
+}
+if (isCmd && m.isGroup) { //By Deff
+deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
+anu = did(command, semuamenu) 
+anu2 = sim(command, anu) 
+m.reply(`*Maksud kamu ${anu || `${deff}`}?*`) 
 }
 
 if (m.mentionedJid[0] === botNumber) {
