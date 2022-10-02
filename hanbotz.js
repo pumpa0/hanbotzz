@@ -201,9 +201,9 @@ try {
 let metadata = await hanbotz.groupMetadata(m.chat)
 if (metadata.id === "120363023720252331@g.us") {
       if (anu.action == 'add') {
-                  hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
+                  hanbotz.sendText(anu.id, `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, { mentions: [num] })
                 } else if (anu.action == 'remove') {
-                 hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
+                 hanbotz.sendText(anu.id, `@${num.split("@")[0]} Keluar Beli Gorengan`, { mentions: [num] })
                  }
                  }
                 } 
