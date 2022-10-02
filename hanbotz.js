@@ -338,8 +338,8 @@ const fgclink = {
 "groupInviteMessage": {
 "groupJid": "120363023720252331@g.us",
 "inviteCode": `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`,
-"groupName": `𝐇 𝐘 𝐀 𝐊 𝐔 𝐓 𝐀 𝐊 𝐄 💫`, 
-"caption":`HanBotz`, 
+"groupName": `HanBotz Official`, 
+"caption":`p`, 
 'jpegThumbnail': log0
 }
 }
@@ -6429,7 +6429,56 @@ if (isBanChat) return reply(mess.banChat)
 reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
+case 'menu': {
+if (isBan) return reply(mess.ban)
+if (isBanChat) return reply(mess.banChat)
+let useq = db.data.users[m.sender].limit
+let used = db.data.users[m.sender].game
 
+menux = `
+★ *User Info*
+➼ Nama :  ${pushname}
+➼ Limit :  ${useq}
+➼ Game :  ${used}
+
+★ *Bot Info*
+➼ Hit Harian : ${jumlahharian}
+➼ Total Hit : ${jumlahcmd}
+➼ Runtime : ${runtime(process.uptime())}
+`
+
+let buttons = [
+{buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
+{buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
+]
+
+let buttonMessage = {
+document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
+fileName: "WhatsApp Bot", 
+mimetype: `application/pdf`,
+fileLength: "1",
+pageCount: "2022", 
+jpegThumbnail: log0,
+caption: menux,
+mentions:[m.sender],
+footer: global.footer, 
+buttons: buttons,
+headerType: 4,
+contextInfo: {
+"externalAdReply": { 
+"title" : global.botname,
+"mediaType" : 1,
+"renderLargerThumbnail" : true , 
+"showAdAttribution": true, 
+"jpegThumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
+"mediaUrl": global.linkz, 
+"thumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
+"sourceUrl" : global.linkz 
+}}
+}
+hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
+}
+break
 case 'command': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -7806,55 +7855,8 @@ case 'setppgc2': {
             }
             break
 
-case 'menu': {
-if (isBan) return reply(mess.ban)
-if (isBanChat) return reply(mess.banChat)
-let useq = db.data.users[m.sender].limit
-let used = db.data.users[m.sender].game
-
-menux = `
-★ *User Info*
-➼ Nama :  ${pushname}
-➼ Limit :  ${useq}
-➼ Game :  ${used}
-
-★ *Bot Info*
-➼ Hit Harian : ${jumlahharian}
-➼ Total Hit : ${jumlahcmd}
-➼ Runtime : ${runtime(process.uptime())}
-`
-
-let buttons = [
-{buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
-{buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
-]
-
-let buttonMessage = {
-document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
-fileName: "WhatsApp Bot", 
-mimetype: `application/pdf`,
-fileLength: "1",
-pageCount: "2022", 
-jpegThumbnail: log0,
-caption: menux,
-mentions:[m.sender],
-footer: global.footer, 
-buttons: buttons,
-headerType: 4,
-contextInfo: {
-"externalAdReply": { 
-"title" : global.botname,
-"mediaType" : 1,
-"renderLargerThumbnail" : true , 
-"showAdAttribution": true, 
-"jpegThumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
-"mediaUrl": global.linkz, 
-"thumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
-"sourceUrl" : global.linkz 
-}}
-}
-hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
-}
+case 'testtt':
+hanbotz.sendMessage("6285731855426@s.whatsapp.net", `anjay`, {quoted: fgclink})
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
@@ -7906,18 +7908,9 @@ break
                     })
                 }
               
-		if (isCmd && !m.isGroup) {  //By Deff
-deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
-anu = did(command, semuamenu) 
-anu2 = sim(command, anu) 
-detect(`Maksud kamu *${anu || anu2}*`) 
-}
-if (isCmd && m.isGroup) { //By Deff
-deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
-anu = did(command, semuamenu) 
-anu2 = sim(command, anu) 
-m.reply(`Maksud kamu *${anu || anu2}*`) 
-}
+if (command && m.isGroup) {
+	reply (`*${prefix}${command}*\n\nTidak ada di menu`)
+	}
 
 if (m.mentionedJid[0] === botNumber) {
 	pir = await getBuffer (`https://telegra.ph/file/895007d94734b380fdf1e.png`)
