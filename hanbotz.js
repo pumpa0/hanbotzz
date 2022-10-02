@@ -172,9 +172,46 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autorereplyw = true
 
-if (budy.startsWith('212','92','91')) {
-	await hanbotz.updateBlockStatus(m.sender, 'block')
-	}
+hanbotz.ev.on('group-participants.update', async (anu) => {
+        console.log(anu)
+        try {
+            let metadata = await hanbotz.groupMetadata(anu.id)
+            let participants = anu.participants
+            for (let num of participants) {
+                // Get Profile Picture User
+                try {
+                    ppuser = await hanbotz.profilePictureUrl(num, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+
+                // Get Profile Picture Group
+                try {
+                    ppgroup = await hanbotz.profilePictureUrl(anu.id, 'image')
+                } catch {
+                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+// get pict grup
+try {
+       ppgc = await hanbotz.profilePictureUrl(pea[0].id, 'image')
+       } catch {
+       ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+       }
+       if (m.isGroup) {
+let metadata = await hanbotz.groupMetadata(m.chat)
+if (metadata.id === "120363023720252331@g.us") {
+      if (anu.action == 'add') {
+                  hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
+                } else if (anu.action == 'remove') {
+                 hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
+                 }
+                 }
+                } 
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    })
 
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -1696,7 +1733,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 let response = await hanbotz.groupInviteCode(m.chat)
-                hanbotz.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\n${groupMetadata.subject} Group Link`, m, { detectLink: true })
+await hanbotz.sendMessage(from, { text: `https://chat.whatsapp.com/${response}`}, {quoted:m})
             }
             break
             case 'ephemeral': {
@@ -6320,55 +6357,7 @@ if (!q) return reply('Send orders *#setbio text*')
 hanbotz.setStatus(`${q}`)
 reply(mess.success)
 break
-            case 'ping': case 'botstatus': case 'statusbot': {
-            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-                const used = process.memoryUsage()
-                const cpus = os.cpus().map(cpu => {
-                    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-			        return cpu
-                })
-                const cpu = cpus.reduce((last, cpu, _, { length }) => {
-                    last.total += cpu.total
-                    last.speed += cpu.speed / length
-                    last.times.user += cpu.times.user
-                    last.times.nice += cpu.times.nice
-                    last.times.sys += cpu.times.sys
-                    last.times.idle += cpu.times.idle
-                    last.times.irq += cpu.times.irq
-                    return last
-                }, {
-                    speed: 0,
-                    total: 0,
-                    times: {
-			            user: 0,
-			            nice: 0,
-			            sys: 0,
-			            idle: 0,
-			            irq: 0
-                }
-                })
-                let timestamp = speed()
-                let latensi = speed() - timestamp
-                neww = performance.now()
-                oldd = performance.now()
-                respon = `
-*- S P E E D -*
-${latensi.toFixed(4)} Second
-${oldd - neww} Miliseconds
-
-*- R U N T I M E -*
-${runtime(process.uptime())}
-
-*- S E R V E R -*
-RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-
-*⫹⫺ NodeJS Memory Usage*
-${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
-                `.trim()
-                reply(respon)
-            }
-            break
+            
             case 'speedtest': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -6421,7 +6410,7 @@ if (isBanChat) return reply(mess.banChat)
 reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
-case 'statusss': {
+case 'ping': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
                 const used = process.memoryUsage()
@@ -6493,7 +6482,6 @@ menux = `
 `
 let buttons = [
 {buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
-{buttonId: `/statusss`, buttonText: {displayText: 'Status'}, type: 1},
 {buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
 ]
 
