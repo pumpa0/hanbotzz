@@ -7856,12 +7856,6 @@ contextInfo: {
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
 }
 break
-case 'whatmusic':{ //Ngambil Dari mans :v
-let media = await quoted.download()
-let res = await Ikyy.search.whatmusic(media)
-reply(`${res.title ? "» Title : " + res.title + "\n" : ""}${res.artists ? "» Artists : " + res.artists + "\n" : ""}${res.album ? "» Album : " + res.album + "\n" : ""}${res.duration ? "» Duration : " + res.duration + "\n" : ""}${res.release ? "» Release : " + res.release + "\n" : ""}${res.genre_music ? "» Genre : " + res.genre_music + "\n" : ""}${res.sumber ? "» Sumber : " + res.sumber + "\n" : ""} ${res.message ? "» Message : " + res.message : ""}`)
-}
-break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
@@ -7916,13 +7910,13 @@ break
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
 anu2 = sim(command, anu) 
-detect(`Maksud kamu *${anu || deff}*`) 
+detect(`Maksud kamu *${anu || anu2}*`) 
 }
 if (isCmd && m.isGroup) { //By Deff
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
 anu2 = sim(command, anu) 
-m.reply(`Maksud kamu *${anu || deff}*`) 
+m.reply(`Maksud kamu *${anu || anu2}*`) 
 }
 
 if (m.mentionedJid[0] === botNumber) {
