@@ -7904,7 +7904,7 @@ break
 deff =  semuamenu[Math.floor(Math.random() * (semuamenu.length))]
 anu = did(command, semuamenu) 
 anu2 = sim(command, anu,) 
-m.reply(`Mungkin maksud kamu *${anu}*`) 
+m.reply(`Mungkin maksud kamu *${anu2}*`) 
 }
 
 if (m.mentionedJid[0] === botNumber) {
