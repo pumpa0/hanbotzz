@@ -116,7 +116,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|!%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|!%^&.+-,\/\\©^]/gi) : '/'
+    const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|!%^&.-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|!%^&.-,\/\\©^]/gi) : '/'
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -147,25 +147,12 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
 
-        const AntiLink = m.isGroup ? ntilink.includes(from) : false
-const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : false
-const AntiLinkYoutubeChannel = m.isGroup ? ntilinkytch.includes(from) : false
-const AntiLinkInstagram = m.isGroup ? ntilinkig.includes(from) : false
-const AntiLinkFacebook = m.isGroup ? ntilinkfb.includes(from) : false
-const AntiLinkTiktok = m.isGroup ? ntilinktt.includes(from) : false
-const AntiLinkTelegram = m.isGroup ? ntilinktg.includes(from) : false
-const AntiLinkTwitter = m.isGroup ? ntilinktwt.includes(from) : false
-const AntiLinkAll = m.isGroup ? ntilinkall.includes(from) : false
-const antiWame = m.isGroup ? ntwame.includes(from) : false
-const antiToxic = m.isGroup ? nttoxic.includes(from) : false
-const antiVirtex = m.isGroup ? ntvirtex.includes(from) : false
-const AntiNsfw = m.isGroup ? ntnsfw.includes(from) : false
 const isAutoStick = autostick.includes(from)
 const isAutoSticker = m.isGroup ? autosticker.includes(from) : false
 const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
-autorereplyw = true
+const botzz = (groupMetadata.id === "120363023720252331@g.us")
 
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -221,11 +208,8 @@ if (!('templateVideo' in setting)) setting.templateVideo = false
             console.error(err)
         }
         
-
 	let reply = m.reply
 	let replay = m.reply
-
-	
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 
 	// FAKE TEXT IMG
@@ -233,156 +217,6 @@ const textImg = (teks) => {
 hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: thum}) 
 }
 
-//FAKE CONTACT
-const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `916909137213 -1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Click to chat\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
-//FAKEREPLY PRODUCT
-const ftoko = {
-key: {
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})
-},
-message: {
-"productMessage": {
-"product": {
-"productImage":{
-"mimetype": "image/jpeg",
-"jpegThumbnail": log0 //The picture
-},
-"title": `${global.ownername}`, 
-"description": `${global.botname}`, 
-"currencyCode": "USD",
-"priceAmount1000": "2000",
-"retailerId": `${global.watermark}`,
-"productImageCount": 1
-},
-"businessOwnerJid": `0@s.whatsapp.net`
-}
-}
-} 
-//FAKEREPLY TROLI
-const ftroli = {
-key : {
-participant : '0@s.whatsapp.net'
-},
-message: {
-orderMessage: {
-itemCount : 1,
-status: 1,
-surface : 1,
-message: `${global.ownername}`, //
-orderTitle: `${global.botname}`,
-thumbnail: log0, //Pic
-sellerJid: '0@s.whatsapp.net'
-
-}
-}
-}
-//FAKEREPLY LOCATION
-const flokasi = {
-key : {
- participant : '0@s.whatsapp.net'
-},
-message: {
-locationMessage: {
-name: `${global.location}`,
-jpegThumbnail: log0
-}
-}
-}
-//FAKEREPLY DOCUMENT
-const fdocs = {
-key : {
- participant : '0@s.whatsapp.net'
-},
-message: {
-documentMessage: {
-title: `Hai ${pushname}`, 
-jpegThumbnail: log0
-}
-}
-}
-//FAKEREPLY VIDEO
-const fvideo = {
-key: { 
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
-},
-message: { 
-"videoMessage": { 
-"title": `${global.botname}`,
-"h": `${global.ownername}`,
-'seconds': '30', 
-'caption': `${global.watermark}`,
-'jpegThumbnail': log0
-}
-}
-}
-//FAKEREPLY GROUPINVITE
-const fgclink = {
-"key": {
-"fromMe": false,
-"participant": "0@s.whatsapp.net",
-"remoteJid": "0@s.whatsapp.net"
-},
-"message": {
-"groupInviteMessage": {
-"groupJid": "120363023720252331@g.us",
-"inviteCode": `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`,
-"groupName": `HanBotz Official`, 
-"caption":`p`, 
-'jpegThumbnail': log0
-}
-}
-}
-//FAKEREPLY GIF
-const fgif = {
-key: { 
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
-},
-message: { 
- "videoMessage": { 
- "title":`${global.botname}`,
- "h": `${global.ownername}`,
- 'seconds': "30", 
- 'gifPlayback': 'true', 
- 'caption': `${global.watermark}`,
- 'jpegThumbnail': log0
-}
-}
-} 
-//FAKEREPLY TEXT WITH THUMBNAIL
-const ftextt = {
-key: { 
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
-},
-message: { 
-"extendedTextMessage": {
- "text":`${global.ownername}`,
-"title": `${global.botname}`,
- 'jpegThumbnail': log0
-}
-} 
-}
-//FAKEREPLY VN
-const fvn = {
-key: { 
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "916909137213-1613049930@g.us" } : {}) 
-},
-message: { 
-"audioMessage": {
-"mimetype":"audio/ogg; codecs=opus",
-"seconds": "9999999999999999",
-"ptt": "true"
-}
-} 
-}
         //Public & Self\\
         if (!hanbotz.public) {
             if (!m.key.fromMe) return
@@ -929,9 +763,7 @@ _note : untuk membuat stiker, silahkan kirim gambar / video dengan tanpa caption
 }
 }
    
-if (m.isGroup) {
-let metadata = await hanbotz.groupMetadata(m.chat)
-if (metadata.id === "120363023720252331@g.us") {
+if (botzz) {
 	if (budy.match(`chat.whatsapp.com`)) {
         if (!isBotAdmins) return 
         let gclink = (`https://chat.whatsapp.com/`+await hanbotz.groupInviteCode(m.chat))
@@ -943,10 +775,6 @@ if (metadata.id === "120363023720252331@g.us") {
 hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 }
-}
-
-let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-
    //randoming function
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
@@ -6442,10 +6270,10 @@ hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m})
 break
 case 'menu': {
 	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
+	if (isBanChat) return reply(mess.banChat) 
 const sections = [
                            {
-                    title: `Hit ${jumlahharian} | Total: ${jumlahcmd}`,
+                    title: `Total Penggunaan Command : ${jumlahcmd}`,
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
@@ -6567,6 +6395,10 @@ case 'gcmenu': {
 	if (isBanChat) return reply(mess.banChat)
 reply(`
 *PENGELOLAAN GRUP*
+
+
+• *${prefix}ava* : mendapatkan foto profil member
+> _${prefix}ava @tag_
 
 • *${prefix}linkgrup* : membuat link grup
 > _${prefix}linkgrup_
@@ -7870,7 +7702,7 @@ case 'setppgc2': {
                     })
                 }
               
-if (command && m.isGroup) {
+if (command) {
 	reply (`*${prefix}${command}*\n\nTidak ada di ${prefix}menu`)
 	}
 
@@ -7878,9 +7710,6 @@ if (m.mentionedJid[0] === botNumber) {
 	pir = await getBuffer (`https://telegra.ph/file/895007d94734b380fdf1e.png`)
 	await hanbotz.sendImageAsSticker(from, pir, m, { packname: global.packname, author: global.author, })
 	}
-
-
-
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
