@@ -229,13 +229,20 @@ hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: thum})
 	//reset limit every 12 hours\\
         let cron = require('node-cron')
         cron.schedule('00 00 * * *', () => {
-        	exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
+            let user = Object.keys(global.db.data.users)
+            let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
+            for (let jid of user) global.db.data.users[jid].limit = limitUser
+            console.log('Reseted Limit')
         }, {
             scheduled: true,
             timezone: "Asia/Jakarta"
         })
-        cron.schedule('00 12 * * *', () => {
-        	exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
+        
+        cron.schedule('00 23 * * *', () => {
+            let user = Object.keys(global.db.data.users)
+            let limitGame = isPremium ? global.limitawal.premium : global.limitawal.game
+            for (let jid of user) global.db.data.users[jid].game = limitGame
+            console.log('Reseted Limit')
         }, {
             scheduled: true,
             timezone: "Asia/Jakarta"
@@ -243,7 +250,7 @@ hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: thum})
         
         //hitter
         global.hit = {}
-if (isCmd) {
+if (command) {
 data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
 jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
