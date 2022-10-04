@@ -5724,37 +5724,20 @@ break
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                let ana = await getBuffer(anu.respon.video)
+                let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
+                let ana = await getBuffer(anu.result.server1.video)
                 hanbotz.sendMessage(m.chat, { video: ana, caption: `HanBotz` }, { quoted: m })
                 }
                 break
-case 'tiktok2': {
-		if (!text) return reply(mess.linkm)
-                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let ani = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
-                let ano = await getBuffer(ani.hasil.video.no_watermark)
-                hanbotz.sendMessage(m.chat, { video: ano, caption: `HanBotz` }, { quoted: m }) 
-                } 
-                break
-                case 'tiktok3': {
-		if (!text) return reply(mess.linkm)
-                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: ans, caption: `HanBotz` }, { quoted: m })
-                }
-                break
             
-case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
+case 'tiktokaudio': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
   if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-   let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
-   let ana = await getBuffer(`https://api.akuari.my.id/downloader/tiktokaudio?link=${text}`)
+   let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
+                let ana = await getBuffer(anu.result.server1.music)
     hanbotz.sendMessage(from, { audio: ana, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
