@@ -4812,16 +4812,14 @@ case 'ytmp3': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
-hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}.mp3`}, { quoted : m })
             }
             break
             case 'ytmp4': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
                 hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
             }
