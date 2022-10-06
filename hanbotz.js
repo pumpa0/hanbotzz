@@ -4763,7 +4763,7 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.result.server1.video } }, { quoted: m })
+                reply (anu.result.server1.video)
                 }
                 break
             
@@ -4774,7 +4774,7 @@ case 'tiktokaudio': {
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
    let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-    hanbotz.sendMessage(m.chat, {audio: { url: anu.result.server1.music }, mimetype: 'audio/mpeg', fileName: `Tiktok Audio`}, { quoted : m })
+    reply(anu.result.server1.music)
    }
  break
 	
@@ -4812,7 +4812,8 @@ case 'ytmp3': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
 hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}`}, { quoted : m })
             }
             break
@@ -4820,6 +4821,7 @@ hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
                 hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
             }
