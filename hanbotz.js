@@ -4763,7 +4763,7 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-                reply(anu.result.server1.video)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.result.server1.video } }, { quoted: m })
                 }
                 break
             
@@ -4774,7 +4774,7 @@ case 'tiktokaudio': {
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
    let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-    reply(anu.result.server1.music)
+    hanbotz.sendMessage(m.chat, {audio: { url: anu.result.server1.music }, mimetype: 'audio/mpeg', fileName: `Tiktok Audio`}, { quoted : m })
    }
  break
 	
@@ -4787,8 +4787,8 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `.ytmp3x ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
-                    {buttonId: `.ytmp4x ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
+                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
+                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
@@ -4808,60 +4808,20 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'ytmp3x': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                let { yta } = require('./lib/y2mate')
-                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-                let quality = args[1] ? args[1] : '128kbps'
-                let media = await yta(text, quality)
-               let iniaud = await (`$media.dl_link`)
-               if (media.filesize >= 100000) {
-                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
-return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
-                }
-                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
-            }
-            break
-case 'ytmp4x': {
-                let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
-                let quality = args[1] ? args[1] : '360'
-                let media = await ytv(text, quality)
-                if (media.filesize >= 100000) {
-                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
-return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
-                }
-                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
-            }
-            break
 case 'ytmp3': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-                let { yta } = require('./lib/y2mate')
-                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-                let quality = args[1] ? args[1] : '128kbps'
-                let media = await yta(text, quality)
-               let iniaud = await (`$media.dl_link`)
-               if (media.filesize >= 100000) {
-                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
-return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
-                }
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\ntunggu, file akan segara dikirim`, m)
-                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
+if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
+let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
+hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}`}, { quoted : m })
             }
             break
             case 'ytmp4': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
-                let quality = args[1] ? args[1] : '360'
-                let media = await ytv(text, quality)
-                if (media.filesize >= 100000) {
-                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
-return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
-                }
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\ntunggu, file akan segera dikirim`, m)
-                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
+                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
+let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
+                hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
             }
             break
             
