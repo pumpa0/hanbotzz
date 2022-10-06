@@ -12,16 +12,9 @@ const maker = require('mumaker')
 const hx = require("hxz-api")
 const moment = require('moment-timezone')
 const { JSDOM } = require('jsdom')
-const hikki = require('hikki-me') 
-const did = require('didyoumean') 
-let sim = require('similarity') 
-const IkyyClient = require("ikyy");
-const Ikyy = new IkyyClient();
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
-const { Primbon } = require('scrape-primbon')
 const Jimp = require('jimp')
-const primbon = new Primbon()
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom, generateProfilePicture } = require('./lib/myfunc')
 const xeonkey = require('xfarr-api')
 const cheerio = require ("cheerio")
@@ -107,8 +100,9 @@ const caklontong = JSON.parse(fs.readFileSync('./src/caklontong.json'))
 const caklontong_desk = JSON.parse(fs.readFileSync('./src/caklontong_desk.json'))
 const tebakbendera = JSON.parse(fs.readFileSync('./src/tebakbendera.json'))
 const tebakanime = JSON.parse(fs.readFileSync('./src/tebakanime.json'))
-const tebaklirik= JSON.parse(fs.readFileSync('./src/tebaklirik.json'))
-const tebaklagu= JSON.parse(fs.readFileSync('./src/tebaklagu.json'))
+const tebaklirik = JSON.parse(fs.readFileSync('./src/tebaklirik.json'))
+const tebaklagu = JSON.parse(fs.readFileSync('./src/tebaklagu.json'))
+const susunkata = JSON.parse(fs.readFileSync('./src/susunkata.json'))
 
 module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
@@ -4769,7 +4763,7 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-                reply(anu.result.server1.video)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.result.server1.video } }, { quoted: m })
                 }
                 break
             
@@ -4780,7 +4774,7 @@ case 'tiktokaudio': {
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
    let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-    reply(anu.result.server1.music)
+    hanbotz.sendMessage(m.chat, {audio: { url: anu.result.server1.music }, mimetype: 'audio/mpeg', fileName: `Tiktok Audio`}, { quoted : m })
    }
  break
 	
