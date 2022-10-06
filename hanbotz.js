@@ -4763,7 +4763,7 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.result.server1.video } }, { quoted: m })
+                reply(anu.result.server1.video)
                 }
                 break
             
@@ -4774,7 +4774,7 @@ case 'tiktokaudio': {
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
    let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-    hanbotz.sendMessage(m.chat, {audio: { url: anu.result.server1.music }, mimetype: 'audio/mpeg', fileName: `Tiktok Audio`}, { quoted : m })
+    reply(anu.result.server1.music)
    }
  break
 	
