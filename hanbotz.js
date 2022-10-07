@@ -748,19 +748,6 @@ if (command) {
                 }
 }
 }
-
-if (!isCreator && !isCoowner) {
-if (!m.isGroup) {
-if (command) {
-	return reply (`*🚩 Bot hanya bisa digunakan di grup*
-https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
-
-${redd}
-_note : untuk membuat stiker, silahkan kirim gambar / video dengan tanpa caption._
-`)
-}
-}
-}
    
 if (botzz) {
 	if (budy.match(`chat.whatsapp.com`)) {
