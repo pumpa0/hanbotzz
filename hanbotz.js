@@ -4693,11 +4693,10 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 let yts = require("yt-search")
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
-                let ytvc = await hx.youtube(anu.url)
-let buttons = [
-{buttonId: `ytvd ${ytvc.link}`, buttonText: {displayText: '► Video'}, type: 1},
-{buttonId: `ytad ${ytvc.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-]
+                let buttons = [
+                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
+                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
+                ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
                     caption: `
@@ -4716,29 +4715,15 @@ let buttons = [
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'ytvd': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
-}
-break
-
-case 'ytad': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(m.chat, {audio: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}.mp3`}, { quoted : m })
-}
-break
-
-case 'ytmp3x': {
+case 'ytmp3': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
-hanbotz.sendMessage(m.chat, {audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}.mp3`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}.mp3`}, { quoted : m })
             }
             break
-            case 'ytmp4x': {
+            case 'ytmp4': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
@@ -4746,35 +4731,8 @@ let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url
                 hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
             }
             break
+               
             
-case 'ytmp4': case 'ytmp3': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(mess.linkm)
-try {
-hx.youtube(args[0]).then(async(res) => {
-
-let buttons = [
-{buttonId: `ytvd ${res.link}`, buttonText: {displayText: '► Video'}, type: 1},
-{buttonId: `ytad ${res.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-]
-let buttonMessage = {
-                    image: { url: res.thumb },
-                    caption: `
-• Title : ${res.title}
-• Size : ${res.size}
-• Quality : ${res.quality}`,
-                    footer: hanbotz.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-}).catch(_ => _)
-} catch {
-reply("error!")
-}
-}
-break            
 case 'getmusic': {
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} 1`
@@ -6343,6 +6301,23 @@ case 'setppgc2': {
             }
             }
             break
+case 'mediafire': {
+	if (isBan) return reply(mess.ban)
+	if (isBanChat) return reply(mess.banChat)
+if (!text) return reply(mess.linkm)
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`The link you provided is invalid`)
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 999) return reply('*File Over Limit* '+util.format(baby1))
+const result4 = `*MEDIAFIRE DOWNLOADER*
+				
+*Name* : ${baby1[0].nama}
+*Size* : ${baby1[0].size}
+*Mime* : ${baby1[0].mime}
+*Link* : ${baby1[0].link}`
+reply(`${result4}`)
+hanbotz.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+}
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
