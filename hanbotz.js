@@ -35,48 +35,6 @@ const { pinterest } = require("./lib/pinterest")
 const toHur = require('@develoka/angka-terbilang-js')
 const { hentai } = require('./lib/scraper2.js')
 let { wikimedia } = require('./lib/scraper')
-const {
- FajarNews, 
- BBCNews,
-  metroNews,
-  CNNNews,
-  iNews,
-  KumparanNews,
-  TribunNews,
-  DailyNews,
-  DetikNews,
-  OkezoneNews,
-  CNBCNews,
-  KompasNews,
-  SindoNews,
-  TempoNews,
-  IndozoneNews,
-  AntaraNews,
-  RepublikaNews,
-  VivaNews,
-  KontanNews,
-  MerdekaNews,
-  KomikuSearch,
-  AniPlanetSearch,
-  KomikFoxSearch,
-  KomikStationSearch,
-  MangakuSearch,
-  KiryuuSearch,
-  KissMangaSearch,
-  KlikMangaSearch,
-  PalingMurah,
-  LayarKaca21,
-  AminoApps,
-  Mangatoon,
-  WAModsSearch,
-  Emojis,
-  CoronaInfo,
-  JalanTikusMeme, 
-  Cerpen,
-  Quotes,
-  Couples,
-  Darkjokes
-} = require("dhn-api")
 
 //Database omther\\
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
@@ -146,9 +104,6 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 const botzz = (groupMetadata.id === "120363023720252331@g.us")
 
-        //member\\
-        let picaks = [flaming,fluming,flarun,flasmurf]
-		let picak = picaks[Math.floor(Math.random() * picaks.length)]
 		
           try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -175,26 +130,6 @@ const botzz = (groupMetadata.id === "120363023720252331@g.us")
             } else global.db.data.chats[m.chat] = {
                 mute: false,
             }
-		
-	    let setting = global.db.data.settings[botNumber]
-            if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
-	    if (setting) {
-		if (!isNumber(setting.status)) setting.status = 0
-		if (!('autobio' in setting)) setting.autobio = false
-if (!('templateImage' in setting)) setting.templateImage = false
-if (!('templateVideo' in setting)) setting.templateVideo = false
-		if (!('templateGif' in setting)) setting.templateGif = false
-		if (!('templateMsg' in setting)) setting.templateMsg = false
-		if (!('templateDocument' in setting)) setting.templateDocument = true
-	    } else global.db.data.settings[botNumber] = {
-		status: 0,
-		autobio: false,
-		templateImage: false,
-		templateVideo: false,
-		templateGif: false,
-		templateMsg: false,
-		templateDocument: true,
-	    }
 	    
         } catch (err) {
             console.error(err)
@@ -284,20 +219,6 @@ if(!isCreator && !isPremium){
 var sttw = 'Free User'
                           }
                           
-
-//emoji 
-const emote = (satu, dua) => {
-try{	    
-const { EmojiAPI } = require("emoji-api");
-const emoji = new EmojiAPI();
-emoji.get(satu)
-.then(emoji => {
-hanbotz.sendMessage(m.chat, { image: { url: emoji.images[dua].url }, caption: `HanBotz` }, { quoted: m })
-})
-} catch (e) {
-reply("Emoji error, masukkan emoji lain\nCATATAN : Cukup masukkan 1 emoji")
-}
-}
 
       //Mute Chat\\
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
@@ -736,7 +657,7 @@ const latensie = speed() - timestampe
 if (command) {
 	await hanbotz.readMessages([m.key])
 }
-if (m.isGroup) {
+
 if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	let metadata = await hanbotz.groupMetadata(m.chat)
@@ -744,9 +665,8 @@ if (command) {
                 let datax = participantss.map(a => a.id).includes(m.sender)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
+                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
-}
 }
    
 if (botzz) {
@@ -760,10 +680,6 @@ if (botzz) {
         if (isCreator) return
 hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
-}
-   //randoming function
-function pickRandom(list) {
-return list[Math.floor(list.length * Math.random())]
 }
 
 switch(command) {
@@ -4749,8 +4665,10 @@ break
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-                reply (anu.result.server1.video)
+              //  let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
+              //  reply (anu.result.server1.video)
+              let ana = await fetchJson(`https://cakrayp.herokuapp.com/api/ttdownloader?url=${text}&sender_device=pc&apikey=cakrayp24Q6`)
+              hanbotz.sendMessage(m.chat, { video: { url: ana.result.nowatermark } }, { quoted: m })
                 }
                 break
             
@@ -5241,7 +5159,7 @@ contextInfo: {
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
 }
 break
-case 'menu': {
+case 'menu': case 'command': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat) 
 const sections = [
@@ -5463,7 +5381,7 @@ reply(`
 > _${prefix}tiktokaudio [url]_
 
 • *${prefix}twitter* : mengunduh video twitter
-> _${prefix}twitter [url]
+> _${prefix}twitter [url]_
 ~ tidak support gambar
 
 • *${prefix}twitteraudio* : mengunduh audio twitter
@@ -5916,7 +5834,7 @@ reply(`
 > _${prefix}bagaimanakah_
 `)
 break
-case 'menfessxxx':
+case 'menfess':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (m.isGroup) return replay(mess.privatee)
@@ -5926,6 +5844,8 @@ reply(`
 ❗ *PERATURAN*
 • Dilarang menggunakan nomor acak atau nomor yang tidak kamu kenal
 • Jangan digunakan untuk mengirim porno, dsb
+• Jangan di spam
+*_Melanggar akan di ban / block_*
 
 
 • *${prefix}menfesstext* : mengirim teks secara rahasia
@@ -6078,7 +5998,7 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 }
                 break
 
-case 'menfesstextx':  case 'menfessteksx': {
+case 'menfesstext':  case 'menfessteks': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -6103,7 +6023,7 @@ Pesan : ${fess3}`
     hanbotz.sendText(users, textt)
 }
 break
-case 'menfessimagex': {
+case 'menfessimage': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -6132,7 +6052,7 @@ Pesan : ${fess3}`
                 hanbotz.sendMessage(users, { image: { url: media }, caption: captionn })
             }
             break
-case 'menfessvideox': {
+case 'menfessvideo': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -6161,7 +6081,7 @@ Pesan : ${fess3}`
                 hanbotz.sendMessage(users, { video: { url: media }, caption: captionn })
             }
             break
-case 'menfessaudiox':  {
+case 'menfessaudio':  {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
