@@ -658,7 +658,7 @@ if (command) {
 	await hanbotz.readMessages([m.key])
 }
 
-if (m.isGroup)
+if (m.isGroup) {
 if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	let metadata = await hanbotz.groupMetadata(m.chat)
