@@ -658,6 +658,7 @@ if (command) {
 	await hanbotz.readMessages([m.key])
 }
 
+if (m.isGroup)
 if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	let metadata = await hanbotz.groupMetadata(m.chat)
@@ -667,6 +668,7 @@ if (command) {
                 if (dataax === "false") {
                 	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
+}
 }
    
 if (botzz) {
