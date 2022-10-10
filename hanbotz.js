@@ -6295,25 +6295,13 @@ case 'setppgc2': {
             }
             }
             break
-case 'merangkum': case 'rangkum': {
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply (`teks nya?`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-media = await fetchJson(`https://fatiharridho.herokuapp.com/api/tools/rangkum?text=${text}`)
-reply(media.result)
-}
-break
 case 'singkatan': case 'singkatankata': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} pssi`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/singkatankata?query=${text}`)
-let anu = `Singkatan dari kata *${text}*\n\n`
-for (let i of media) {
-anu += `\n• ${i.result.singkatan}\n`
-}
+reply (media.result.singkatan[0])
 reply (anu)
 }
 break
@@ -6323,11 +6311,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} tidur`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/persamaankata?query=${text}`)
-let anu = `Persamaan dari kata *${text}*\n\n`
-for (let i of media) {
-anu += `\n• ${i.result.persamaan}\n`
-}
-reply (anu)
+reply (media.result.persamaan[0])
 }
 break
 case 'nenen': case 'wangy': case 'simp': case 'sherk': case 'wangy2': {
