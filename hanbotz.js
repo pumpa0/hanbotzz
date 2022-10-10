@@ -4594,9 +4594,9 @@ if (isBan) return reply(mess.ban)
 if (!q) return reply(`What film you wanna search?\nContoh: ${prefix}film Spiderman`)
 xeonkey.Film(q)
     .then(data => {console.log(data)
-    let krl = `*❒「  Film ${q} 」*\n*🌿 Author* : ${data[0].author}\n\n`
+    let krl = `*❒「  Film ${q} 」*\n`
 			    for (let i of data) {
-                krl += (`\n────────────────────\n\n *📍Title :* ${i.judul}\n *?? Quality :* ${i.quality}\n *🖥️ Type : ${i.type}*\n *⌛ Uploaded :* ${i.upload}\n *🌍 Source :* ${i.link}`)
+                krl += (`\n────────────────────\n\n *• Title :* ${i.judul}\n *?? Quality :* ${i.quality}\n *• Type : ${i.type}*\n *• Uploaded :* ${i.upload}\n *• Source :* ${i.link}`)
                 }
                hanbotz.sendMessage(from, { image: { url: data[0].thumb}, caption: krl }, { quoted: m })
 });
@@ -4720,7 +4720,7 @@ case 'ytmp3': {
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
-hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: `${anu.result.title}.mp3`}, { quoted : m })
+reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)
             }
             break
             case 'ytmp4': {
@@ -4728,10 +4728,9 @@ hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'audio
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
-                hanbotz.sendMessage(m.chat, {document: { url: anu.result.url }, mimetype: 'video/mp4', fileName: `${anu.result.title}.mp4`}, { quoted : m })
+reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)
             }
             break
-               
             
 case 'getmusic': {
                 let { yta } = require('./lib/y2mate')
@@ -5171,77 +5170,72 @@ const sections = [
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
-                            "rowId": "/gcmenu",
+                            "rowId": `${prefix}gcmenu`,
                             "description": "Mengatur Grup"
                           },
                           {
                             "title": "🎮 | PERMAINAN",
-                            "rowId": "/gemmenu",
+                            "rowId": `${prefix}gemmenu`,
                             "description": "Menghilangkan Kegabutan"
                            },
                            {
                             "title": "📥 | PENGUNDUH",
-                            "rowId": "/downmenu",
+                            "rowId": `${prefix}downmenu`,
                             "description": "Mengunduh Media"
                            },
                            {
                             "title": "🐣 | PEMBUAT LOGO",
-                            "rowId": "/logomenu",
+                            "rowId": `${prefix}logomenu`,
                             "description": "Membuat Logo"
                            },
                            {
                             "title": "🔎 | PENCARIAN",
-                            "rowId": "/scmenu",
+                            "rowId": `${prefix}scmenu`,
                             "description": "Mencari ayang"
                            },
                            {
                             "title": "⚡ | CONVERT",
-                            "rowId": "/stikmenu",
+                            "rowId": `${prefix}stikmenu`,
                             "description": "Converter"
                            },
                            {
                             "title": "☀️ | FUN",
-                            "rowId": "/funmenu",
+                            "rowId": `${prefix}funmenu`,
                             "description": "Bersenang-senang"
                            },
                            {
-                            "title": "🗯️ | KATA-KATA",
-                            "rowId": "/kate",
-                            "description": "Quote"
-                           },
-                           {
                             "title": "🖼️ | STIKER",
-                            "rowId": "/stmenu",
+                            "rowId": `${prefix}stmenu`,
                             "description": "Pembuat Stiker"
                            },
                            {
                             "title": "🔉 | PENGUBAH SUARA",
-                            "rowId": "/audmenu",
+                            "rowId": `${prefix}audmenu`,
                             "description": "Voice Changer"
                            },
                            {
                             "title": "🌸 | ANIME",
-                            "rowId": "/animenu",
+                            "rowId": `${prefix}animenu`,
                             "description": "Wangy Wangy"
                            },
                            {
                             "title": "🍃 | STIKER ANIME",
-                            "rowId": "/nimenu",
+                            "rowId": `${prefix}nimenu`,
                             "description": "Stiker Anime"
                            },
                            {
                             "title": "🔞 | NSFW",
-                            "rowId": "/nsfwmenu",
+                            "rowId": `${prefix}nsfwmenu`,
                             "description": "(◡ ω ◡)"
                            },
                            {
                             "title": "📚 | CERPEN",
-                            "rowId": "/cerpenmenu",
+                            "rowId": `${prefix}cerpenmenu`,
                             "description": "Cerita Pendek"
                            },
                            {
                             "title": "🧑🏻‍💻 | DEVELOPER",
-                            "rowId": "/ownermenu",
+                            "rowId": `${prefix}ownermenu`,
                             "description": "Pengaturan Bot"
                            }
                            ]
@@ -5259,7 +5253,7 @@ const listMessage = {
 - Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
 - Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
 
-Dev by *_Han_* | Find Me On instagram.com/terserah_bomat\n`,
+Dev by *_Han🚀_* | Find Me On instagram.com/terserah_bomat\n`,
   footer: "© HanBotz",
   title: `Hai *${pushname}*`,
   buttonText: "Pilih Menu",
@@ -6352,10 +6346,95 @@ case 'setppgc2': {
                 }
               
 if (command) {
-	reply (`*${prefix}${command}*\n\nTidak ada di ${prefix}menu`)
+	const sections = [
+                           {
+                    title: `Total Penggunaan Command : ${jumlahcmd}`,
+ rows: [
+                          {
+                            "title": "⚙️ | PENGELOLA GRUP",
+                            "rowId": `${prefix}gcmenu`,
+                            "description": "Mengatur Grup"
+                          },
+                          {
+                            "title": "🎮 | PERMAINAN",
+                            "rowId": `${prefix}gemmenu`,
+                            "description": "Menghilangkan Kegabutan"
+                           },
+                           {
+                            "title": "📥 | PENGUNDUH",
+                            "rowId": `${prefix}downmenu`,
+                            "description": "Mengunduh Media"
+                           },
+                           {
+                            "title": "🐣 | PEMBUAT LOGO",
+                            "rowId": `${prefix}logomenu`,
+                            "description": "Membuat Logo"
+                           },
+                           {
+                            "title": "🔎 | PENCARIAN",
+                            "rowId": `${prefix}scmenu`,
+                            "description": "Mencari ayang"
+                           },
+                           {
+                            "title": "⚡ | CONVERT",
+                            "rowId": `${prefix}stikmenu`,
+                            "description": "Converter"
+                           },
+                           {
+                            "title": "☀️ | FUN",
+                            "rowId": `${prefix}funmenu`,
+                            "description": "Bersenang-senang"
+                           },
+                           {
+                            "title": "🖼️ | STIKER",
+                            "rowId": `${prefix}stmenu`,
+                            "description": "Pembuat Stiker"
+                           },
+                           {
+                            "title": "🔉 | PENGUBAH SUARA",
+                            "rowId": `${prefix}audmenu`,
+                            "description": "Voice Changer"
+                           },
+                           {
+                            "title": "🌸 | ANIME",
+                            "rowId": `${prefix}animenu`,
+                            "description": "Wangy Wangy"
+                           },
+                           {
+                            "title": "🍃 | STIKER ANIME",
+                            "rowId": `${prefix}nimenu`,
+                            "description": "Stiker Anime"
+                           },
+                           {
+                            "title": "🔞 | NSFW",
+                            "rowId": `${prefix}nsfwmenu`,
+                            "description": "(◡ ω ◡)"
+                           },
+                           {
+                            "title": "📚 | CERPEN",
+                            "rowId": `${prefix}cerpenmenu`,
+                            "description": "Cerita Pendek"
+                           },
+                           {
+                            "title": "🧑🏻‍💻 | DEVELOPER",
+                            "rowId": `${prefix}ownermenu`,
+                            "description": "Pengaturan Bot"
+                           }
+                           ]
+                           },
+                           ]
+
+const listMessage = {
+	text: `Tidak ada di ${prefix}menu\n`,
+  footer: "© HanBotz",
+  title: `*${prefix}${command}*`,
+  buttonText: "Pilih Menu",
+  sections
+}
+hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 	}
 
-if (m.mentionedJid[0] === botNumber) {
+if (m.mentionedJid === botNumber) {
 	pir = await getBuffer (`https://telegra.ph/file/895007d94734b380fdf1e.png`)
 	await hanbotz.sendImageAsSticker(from, pir, m, { packname: global.packname, author: global.author, })
 	}
