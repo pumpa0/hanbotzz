@@ -1126,14 +1126,6 @@ if (!m.isGroup) return replay(`${mess.group}`)
 if (isBanChat) return reply(mess.banChat)
 hanbotz.sendMessage(m.chat, reactionMessage)} 
 break
-case 'wangy':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-              if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} hinata`)
-              qq = q.toUpperCase()
-              awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah bau rambut ${qq} bau aku mau cium wanginya ${qq} AAAAAAAAH ~ Rambutnya  .... aaah aku juga ingin membelai rambutnya ~~ AAAAAH ${qq} pertama kali keluar di anime juga lucu ❤️ ❤️ ❤️ AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUU............  ${qq} AAAAAAAAAAAAAAAAAAAAA ❤️ ❤️ ❤️ apa ?  ${qq} itu tidak nyata ?  Hanya NERAKA katamu?  tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak!!  SAYA TIDAK PEDULI DENGAN KENYATAANNYA, SAYA TIDAK PEDULI.  ❤️ ❤️ ❤️ ${qq} saya ... ${qq} di laptop mengawasi saya, ${qq} .. kamu percaya padaku ?  aaaaaaaaaaah makasih ${qq} aku gak mau menyerah ${qq} aaaaaah ❤️ ❤️ ❤️ YAAAAAAAAAAAH MASIH PUNYA ${qq} JUGA TAK SAMA AAAAAAAAAAAAAAH`
-             reply(awikwok)
-              break
             case 'join': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1635,19 +1627,27 @@ await fs.unlinkSync(encmedia)
 db.data.users[m.sender].limit -= 1 
 }
 break
-case 'attp': case 'ttp': {
+case 'attp': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply(`*Contoh : ${prefix + command} hanbotz` )
            await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-           await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!!`))
+           await hanbotz.sendMedia(m.chat, `https://fatiharridho.herokuapp.com/api/canvas/attp?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!!`))
+         }
+         break
+case 'ttp': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply(`*Contoh : ${prefix + command} hanbotz` )
+           await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+           await hanbotz.sendMedia(m.chat, `https://fatiharridho.herokuapp.com/api/canvas/ttp?text=${text}&colour=white`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!!`))
          }
          break
            
 case 'dogesticker':
 case 'dogestick':
 	case 'doge':{
-	                	            	            	if (isBan) return reply(mess.ban)
+	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
@@ -6295,6 +6295,50 @@ case 'setppgc2': {
             }
             }
             break
+case 'merangkum': case 'rangkum': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`teks nya?`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+media = await fetchJson(`https://fatiharridho.herokuapp.com/api/tools/rangkum?text=${text}`)
+reply(media.result)
+}
+break
+case 'singkatan': case 'singkatankata': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`_Contoh:_ ${prefix}${command} pssi`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/singkatankata?query=${text}`)
+let anu = `Singkatan dari kata *${text}*\n\n`
+for (let i of media) {
+anu += `\n• ${i.result.singkatan}\n`
+}
+reply (anu)
+}
+break
+case 'persamaan': case 'persamaankata':{
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`_Contoh:_ ${prefix}${command} tidur`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/persamaankata?query=${text}`)
+let anu = `Persamaan dari kata *${text}*\n\n`
+for (let i of media) {
+anu += `\n• ${i.result.persamaan}\n`
+}
+reply (anu)
+}
+break
+case 'nenen': case 'wangy': case 'simp': case 'sherk': case 'wangy2': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`_Contoh:_ ${prefix}${command} Miku`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/stress/${command}?nama=${text}`)
+reply(media.result)
+}
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
