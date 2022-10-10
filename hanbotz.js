@@ -6301,23 +6301,6 @@ case 'setppgc2': {
             }
             }
             break
-case 'mediafire': {
-	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-if (!text) return reply(mess.linkm)
-if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`The link you provided is invalid`)
-const baby1 = await mediafireDl(text)
-if (baby1[0].size.split('MB')[0] >= 999) return reply('*File Over Limit* '+util.format(baby1))
-const result4 = `*MEDIAFIRE DOWNLOADER*
-				
-*Name* : ${baby1[0].nama}
-*Size* : ${baby1[0].size}
-*Mime* : ${baby1[0].mime}
-*Link* : ${baby1[0].link}`
-reply(`${result4}`)
-hanbotz.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
-}
-break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
