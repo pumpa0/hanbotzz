@@ -28,7 +28,7 @@ const mongoDB = require('./lib/mongoDB')
 
 global.api = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 
-const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
+const Store = require("./worker/lib/Functions/Store.js") //makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.db = new Low(
@@ -48,10 +48,10 @@ global.db.data = {
     ...(global.db.data || {})
 }
 
-// save database every 30seconds
+// save database every 60 seconds
 if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
-  }, 30 * 1000)
+  }, 60 * 1000)
 
 async function starthanbotz() {
     const hanbotz = hanbotzConnect({
@@ -61,7 +61,7 @@ async function starthanbotz() {
         auth: state
     })
 
-    store.bind(hanbotz.ev)
+    const store = Store.bind(hanbotz)
     
     // anticall auto block
     hanbotz.ws.on('CB:call', async (json) => {

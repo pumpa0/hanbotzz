@@ -4720,8 +4720,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
 //reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
-media = await getBuffer (anu.result.url)
-await hanbotz.sendMessage(m.chat, { audio: media, mimetype: 'audio/mpeg' }, { quoted: m })
+reply(`_Lagi error cuy_`)
             }
             break
             case 'ytmp4': {
@@ -4730,8 +4729,7 @@ await hanbotz.sendMessage(m.chat, { audio: media, mimetype: 'audio/mpeg' }, { qu
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
 //reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
-media = await getBuffer (anu.result.url)
-await hanbotz.sendMessage(m.chat, { video: media, mimetype: 'audio/mpeg' }, { quoted: m })
+reply(`_Lagi error cuy_`)
             }
             break
             
@@ -5185,6 +5183,11 @@ const sections = [
                             "title": "📥 | PENGUNDUH",
                             "rowId": `${prefix}downmenu`,
                             "description": "Mengunduh Media"
+                           },
+                           {
+                            "title": "⭐ | MENFESS",
+                            "rowId": `${prefix}menfess`,
+                            "description": "Mengirim Pesan Anonym"
                            },
                            {
                             "title": "🐣 | PEMBUAT LOGO",
@@ -5830,9 +5833,7 @@ reply(`
 ❗ *PERATURAN*
 • Dilarang menggunakan nomor acak atau nomor yang tidak kamu kenal
 • Jangan digunakan untuk mengirim porno, dsb
-• Jangan di spam
 *_Melanggar akan di ban / block_*
-
 
 • *${prefix}menfesstext* : mengirim teks secara rahasia
 > _${prefix}menfesstext 6285807149213 | seseorang | hai_
@@ -6095,36 +6096,7 @@ Pesan : ${fess3}`
   await hanbotz.sendMessage(users, {text: captionn }, {quoted: kirimm})
             }
             break
-case 'ttsid': case 'tts': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply (`teks nya?`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
-audio = await getBuffer(media.result)
-hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-	}
-break
-case 'ttsen': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply (`teks nya?`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
-audio = await getBuffer(media.result)
-hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-	}
-break
-case 'ttsjp': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply (`teks nya?`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
-audio = await getBuffer(media.result)
-hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-	}
-break 
+
 case 'gcc': case 'groupcreate': {
 		if (!isCreator) throw mess.owner
 		if (!text) m.reply(`namanya?`)
@@ -6290,7 +6262,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} pssi`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/singkatankata?query=${text}`)
-reply (media.result[0].singkatan)
+reply (media.result.singkatan)
 }
 break
 case 'persamaan': case 'persamaankata':{
@@ -6299,7 +6271,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} tidur`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/persamaankata?query=${text}`)
-reply (media.result[0].persamaan[0])
+reply (media.result.persamaan)
 }
 break
 case 'nenen': case 'wangy': case 'simp': case 'sherk': case 'wangy2': {
