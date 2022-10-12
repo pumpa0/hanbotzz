@@ -2829,13 +2829,12 @@ replay(`Error!`)
 break
 case 'translate': {
 if (isBan) return reply(mess.ban)
-if (!text) m.reply(`Textnya?\n\n*Contoh*: Hello&id`)
-inite = text.split('|')[0]
-basanya = text.split('|')[1] ? text.split('|')[1] : 'id'
-tes = await fetchJson (`https://api.akuari.my.id/edukasi/terjemah?query=${inite}&kode=${basanya}`)
-Infoo = tes.terjemah
-Detek = tes.query
-replay(`Translate : ${Detek}\nResults : ${Infoo}`)
+if (!text) m.reply(`Textnya?\n\n*Contoh*: Hello`)
+tes = await fetchJson (`https://cakrayp.herokuapp.com/api/google/translate/indonesia?text=${text}&apikey=cakrayp24Q6`)
+info = tes.result.language
+kee = tes.result.to
+anu = tes.result.response.text
+replay(`Bahasa: ${info}\nKe: ${kee}\nTerjemahan:\n${anu}`)
 }
 break
 case'glitch3':
@@ -4245,16 +4244,16 @@ break
             case 'twitdl': case 'twitter': {
                 if (!text) throw 'Mana Linknya!'
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
-                ction = (`${anu.desc}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.HD || anu.SD }, caption: ction }, { quoted: m })
+                let anu = await fetchJson(`https://fatiharridho.herokuapp.com/api/downloader/twitter?url=${text}`)
+                ction = (`${anu.result.desc}`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.result.HD || anu.result.SD }, caption: ction }, { quoted: m })
             }
             break
             case 'twittermp3': case 'twitteraudio': {
                 if (!text) throw 'Mana Linknya!'
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
-                hanbotz.sendMessage(m.chat, {audio: { url: anu.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
+                let anu = await fetchJson(`https://fatiharridho.herokuapp.com/api/downloader/twitter?url=${text}`)
+                hanbotz.sendMessage(m.chat, {audio: { url: anu.result.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
             }
             break
             case 'pinterest2': {
@@ -4720,7 +4719,9 @@ case 'ytmp3': {
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
-reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)
+//reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
+media = await getBuffer (anu.result.url)
+await hanbotz.sendMessage(m.chat, { audio: media, mimetype: 'audio/mpeg' }, { quoted: m })
             }
             break
             case 'ytmp4': {
@@ -4728,7 +4729,9 @@ reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Dow
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
-reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)
+//reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
+media = await getBuffer (anu.result.url)
+await hanbotz.sendMessage(m.chat, { video: media, mimetype: 'audio/mpeg' }, { quoted: m })
             }
             break
             
@@ -5253,7 +5256,7 @@ const listMessage = {
 - Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
 - Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
 
-Dev by *_Han🚀_* | Find Me On instagram.com/terserah_bomat\n`,
+Dev by *_Han🚀_* | Find Me On https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`,
   footer: "© HanBotz",
   title: `Hai *${pushname}*`,
   buttonText: "Pilih Menu",
@@ -5383,6 +5386,9 @@ reply(`
 
 • *${prefix}twitteraudio* : mengunduh audio twitter
 > _${prefix}twitteraudio [url]_
+
+• *${prefix}soundcloud* : mengunduh audio soundcloud
+> _${prefix}soundcloud [url]_
 
 • *${prefix}gitclone* : mengunduh file github
 > _${prefix}gitclone [url]_
@@ -5549,14 +5555,11 @@ if (isBan) return reply(mess.ban)
 reply(`
 *CONVERT*
 
-• *${prefix}ttsid* : membuat audio (Indonesia) dengan teks
-> _${prefix}ttsid hai_
+• *{prefix}tts* : mengubah teks menjadi suara
+> _${prefix}tts hai_
 
-• *${prefix}ttsen* : membuat audio (Inggris) dengan teks
-> _${prefix}ttsen hai_
-
-• *${prefix}ttsjp* : membuat audio (Jepang) dengan teks
-> _${prefix}ttsjp hai_
+• *${prefix}translate* : menerjemahkan semua bahasa ke bahasa Indonesia
+> _${prefix}translate hello_
 
 • *${prefix}toimage* : mengonversikan stiker menjadi gambar
 > _balas stiker (nonAnimasi) dengan caption ${prefix}toimage_
@@ -5581,20 +5584,6 @@ reply(`
 
 • *${prefix}styletext* : membuat teks unik dari kata kunci
 > _${prefix}styletext hanbotz_
-`)
-break
-case 'kate': 
-if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-reply(`
-*QUOTES*
-
-• ${prefix}quotebijak
-• ${prefix}quotefakta
-• ${prefix}quotebacot
-• ${prefix}quoteilham
-• ${prefix}quotefakboy
-• ${prefix}quotesindiran
 `)
 break
 case 'stmenu':
@@ -6301,8 +6290,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} pssi`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/singkatankata?query=${text}`)
-reply (media.result.singkatan[0])
-reply (anu)
+reply (media.result[0].singkatan)
 }
 break
 case 'persamaan': case 'persamaankata':{
@@ -6311,7 +6299,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} tidur`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/search/persamaankata?query=${text}`)
-reply (media.result.persamaan[0])
+reply (media.result[0].persamaan[0])
 }
 break
 case 'nenen': case 'wangy': case 'simp': case 'sherk': case 'wangy2': {
@@ -6321,6 +6309,22 @@ if (!text) reply (`_Contoh:_ ${prefix}${command} Miku`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let media = await fetchJson(`https://fatiharridho.herokuapp.com/api/stress/${command}?nama=${text}`)
 reply(media.result)
+}
+break
+case 'tts': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`_Contoh:_ ${prefix}${command} hai`)
+anu = await fetchJson (`https://cakrayp.herokuapp.com/api/google/speech?text=${text}&lang=id&apikey=cakrayp24Q6&responsetype=json`)
+hanbotz.sendMessage(m.chat, { audio: anu.result.filedata.url, mimetype: 'audio/mpeg' }, { quoted : m })
+}
+break
+case 'soundcloud': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`_Contoh:_ ${prefix}${command} https://on.soundcloud.com/2LSVA`)
+anu = await fetchJson (`https://fatiharridho.herokuapp.com/api/downloader/soundcloud?url=${text}`)
+hanbotz.sendMessage(m.chat, {document: { url: anu.result.link}, mimetype: 'audio/mpeg', fileName: `${anu.result.judul}`}, { quoted : m })
 }
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
