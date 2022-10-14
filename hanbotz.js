@@ -685,12 +685,12 @@ hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 
 let inilimit = {
-	if (!botzz) {
-		db.data.usersx[m.sender].limit -= 1
+	if (botzz) {
+		return
 		} else if (!m.isGroup) {
-			db.data.usersx[m.sender].limit -= 1 
+			return db.data.usersx[m.sender].limit -= 1 
 			} else {
-				return
+				return db.data.users[m.sender].limit -= 1 
 }
 }
 
