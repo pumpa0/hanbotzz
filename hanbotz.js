@@ -6584,7 +6584,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) throw 'Masukkan Query Link!'
 anu = await fetchJson (`https://api.akuari.my.id/downloader/igdl?link=${text}`)
 if (anu.respon.type === "GraphVideo") {
-hanbotz.sendMessage(m.chat, { video: { url: anu.respon.link } caption: `HanBotz` }, { quoted: m })
+hanbotz.sendMessage(m.chat, { video: { url: anu.respon.link }, caption: `HanBotz` }, { quoted: m })
 } else if (anu.respon.type === "GraphImage") {
 hanbotz.sendMessage(m.chat, { image: { url: anu.respon.link }, caption: `HanBotz` }, { quoted: m })
 }
