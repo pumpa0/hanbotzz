@@ -888,7 +888,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Judul Lagu Tersebut Adalah?\n\nArtist : ${result.artist}\nWaktu : 60s`, msg).then(() => {
                     tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -903,7 +903,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendImage(m.chat, result.img, `Silahkan Jawab Soal Di Atas Ini\n\nDeskripsi : ${result.deskripsi}\nWaktu : 60s`, m).then(() => {
                     tebakgambar[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -918,7 +918,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                     tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -933,7 +933,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                     tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -948,7 +948,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Ini Adalah Lirik Dari Lagu?\n*${result.soal}*?\nWaktu : 60s`, m).then(() => {
                     tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -963,7 +963,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                     tebaktebakan[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -978,7 +978,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                     siapakahaku[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -993,7 +993,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendImage(m.chat, result.img, `*Bendera Manakah Ini?*\nWaktu : 60s`, m).then(() => {
                     tebakbendera[m.sender.split('@')[0]] = result.name.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.name)
@@ -1008,7 +1008,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur apa yang dilambangkan dengan *${result.lambang}*\nWaktu : 60s`, m).then(() => {
                     tebakkimia[m.sender.split('@')[0]] = result.unsur.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.unsur)
@@ -1023,7 +1023,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendImage(m.chat, result.soal, `*Siapakah Ini?*\nWaktu : 60s`, m).then(() => {
                     tebakanime[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (tebakanime.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -1067,7 +1067,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                     asahotak[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (asahotak.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -1088,7 +1088,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\n${result.tipe}\nWaktu : 60s`, m).then(() => {
                     susunkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
-                    db.data.users[m.sender].game -= 1 
+                    
                     await sleep(60000)
                     if (susunkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
@@ -1287,7 +1287,9 @@ if (isBanChat) return reply(mess.banChat)
 		if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 	        if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) //wont response when limit runs out\\
-		db.data.users[m.sender].limit -= 1 
+		if (!botzz) {
+db.data.users[m.sender].limit -= 1
+}
 		let { styletext } = require('./lib/scraper')
 		if (!text) return replay(`Enter Query Text!`)
                 let anu = await styletext(text)
@@ -1625,7 +1627,9 @@ var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'attp': {
@@ -1656,7 +1660,9 @@ var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'lovesticker':
@@ -1669,7 +1675,9 @@ var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'gura':
@@ -1682,7 +1690,9 @@ var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
             case 'sticker': case 's': case 'stickergif': case 'sgif': case 'stiker': {
@@ -1787,7 +1797,9 @@ await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
       }     
             await hanbotz.sendMessage(m.chat, buttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                 })
 break
 case 'masturbation': case 'jahy': case 'hentai': case 'glasses': case 'gangbang': case 'foot': 
@@ -1919,7 +1931,9 @@ case 'smug2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
                            var wbuttsss = [
@@ -1941,7 +1955,9 @@ case 'foxgirl':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)
                            var wbuttsss = [
@@ -1982,7 +1998,9 @@ case 'waifu3':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
                            var wbuttsss = [
@@ -2004,7 +2022,9 @@ case 'neko2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 	
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
    waifud = await axios.get('https://waifu.pics/api/sfw/neko')
@@ -2027,7 +2047,9 @@ case 'animecuddle':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)
                            var wbuttsss = [
@@ -2049,7 +2071,9 @@ case 'animeslap':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)
                            var wbuttsss = [
@@ -2071,7 +2095,9 @@ case 'animepat':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)
                            var wbuttsss = [
@@ -2093,7 +2119,9 @@ case 'animeneko':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/neko`)
                            var wbuttsss = [
@@ -2115,7 +2143,9 @@ case 'animehug':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)
                            var wbuttsss = [
@@ -2137,7 +2167,9 @@ case 'animekiss':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)
                            var wbuttsss = [
@@ -2159,7 +2191,9 @@ case 'animewlp':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)
                            var wbuttsss = [
@@ -2181,7 +2215,9 @@ case 'animespank':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)
                            var wbuttsss = [
@@ -2203,7 +2239,9 @@ case 'animecry':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cry`)
                            var wbutt1sss = [
@@ -2225,7 +2263,9 @@ case 'animekill':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/kill`)
                            var wbuttszzss = [
@@ -2247,7 +2287,9 @@ case 'animelick':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz12ss = [
@@ -2269,7 +2311,9 @@ case 'animebite':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bite`)
                            var wbuttszz123ss = [
@@ -2291,7 +2335,9 @@ case 'animeyeet':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/yeet`)
                            var wbuttszz124ss = [
@@ -2313,7 +2359,9 @@ case 'animebully':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz125ss = [
@@ -2335,7 +2383,9 @@ case 'animebonk':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bonk`)
                            var wbuttszz126ss = [
@@ -2357,7 +2407,9 @@ case 'animewink':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wink`)
                            var wbuttszz127ss = [
@@ -2379,7 +2431,9 @@ case 'animepoke':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/poke`)
                            var wbuttszz128ss = [
@@ -2401,7 +2455,9 @@ case 'animesmile':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smile`)
                            var wbuttszz129ss = [
@@ -2423,7 +2479,9 @@ case 'animewave':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wave`)
                            var wbuttszz1210ss = [
@@ -2445,7 +2503,9 @@ case 'animeawoo':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/awoo`)
                            var wbuttszz1211ss = [
@@ -2467,7 +2527,9 @@ case 'animeblush':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/blush`)
                            var wbuttszz1212ss = [
@@ -2489,7 +2551,9 @@ case 'animesmug':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smug`)
                            var wbuttszz1213ss = [
@@ -2511,7 +2575,9 @@ case 'animeglomp':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/glomp`)
                            var wbuttszz1214ss = [
@@ -2533,7 +2599,9 @@ case 'animehappy':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/happy`)
                            var wbuttszz1215ss = [
@@ -2555,7 +2623,9 @@ case 'animedance':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/dance`)
                            var wbuttszz1216ss = [
@@ -2577,7 +2647,9 @@ case 'animecringe':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cringe`)
                            var wbuttszz1217ss = [
@@ -2599,7 +2671,9 @@ case 'animehighfive':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/highfive`)
                            var wbuttszz1218ss = [
@@ -2621,7 +2695,9 @@ case 'animehandhold':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/handhold`)
                            var wbuttszz1219ss = [
@@ -2643,7 +2719,9 @@ case 'animemegumin':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/megumin`)
                            var wbuttszz1220ss = [
@@ -2665,7 +2743,9 @@ case 'shinobu2':
   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
                     ud = await axios.get('https://waifu.pics/api/sfw/shinobu')
 var wbutsss = [
@@ -2687,7 +2767,9 @@ case 'megumin2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
                     ud = await axios.get('https://waifu.pics/api/sfw/megumin')
 var wbutsss = [
@@ -2709,7 +2791,9 @@ case 'awoo2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)
  var wbuttsss = [
@@ -2732,7 +2816,9 @@ case 'waifu': case 'loli':
 					   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 					await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 					axios.get(`https://api.waifu.pics/sfw/waifu`)
 					.then(({data}) => {
@@ -2746,7 +2832,9 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					axios.get(`https://api.waifu.pics/sfw/${command}`)
 					.then(({data}) => {
 						hanbotz.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
-						db.data.users[m.sender].limit -= 1  
+						if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 					})
 					break
 case 'naruto':
@@ -2757,7 +2845,9 @@ case 'naruto':
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `.naruto`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: `donw banh`, image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
-				db.data.users[m.sender].limit -= 1  
+				if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
  			    break
 case 'yaoi':
 			if (isBan) return reply(mess.ban)
@@ -2767,7 +2857,9 @@ case 'yaoi':
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `.${command}`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: "donw banh", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
-				db.data.users[m.sender].limit -= 1  
+				if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
  			    break
 case 'meth': {
 	if (isBan) return reply(mess.ban)	 			
@@ -2850,7 +2942,9 @@ maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.ht
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case '3dbox':
@@ -2863,7 +2957,9 @@ maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
 .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2877,7 +2973,9 @@ await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      `${q}`,])
     .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
     .catch((err) => console.log(err));
-     db.data.users[m.sender].limit -= 1  
+     if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2891,7 +2989,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
       `${q}`,])
      .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
      .catch((err) => console.log(err));
-     db.data.users[m.sender].limit -= 1  
+     if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2905,7 +3005,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 `${q}`,])
          .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
-         db.data.users[m.sender].limit -= 1  
+         if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2919,7 +3021,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 `${q}`,])
 .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
 
@@ -2935,7 +3039,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
  `${teks1}`,`${teks2}`])
  .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
  .catch((err) => console.log(err));
- db.data.users[m.sender].limit -= 1  
+ if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2949,7 +3055,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 `${q}`,])
          .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
-         db.data.users[m.sender].limit -= 1  
+         if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2963,7 +3071,9 @@ maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", 
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2977,7 +3087,9 @@ maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -2991,7 +3103,9 @@ maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
 
@@ -3005,7 +3119,9 @@ maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.ht
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    case 'blackpinkneon':
    if (isBan) return reply(mess.ban)	 			
@@ -3017,7 +3133,9 @@ maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-o
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case 'graffiti':
@@ -3033,7 +3151,9 @@ maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3050,7 +3170,9 @@ maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3065,7 +3187,9 @@ maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html",
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case 'glitch':
@@ -3078,7 +3202,9 @@ maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3095,7 +3221,9 @@ maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3112,7 +3240,9 @@ maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.ht
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3129,7 +3259,9 @@ maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", 
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3146,7 +3278,9 @@ maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3161,7 +3295,9 @@ maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.h
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3176,7 +3312,9 @@ maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3191,7 +3329,9 @@ maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
    
@@ -3206,7 +3346,9 @@ maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
    
@@ -3221,7 +3363,9 @@ maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3238,7 +3382,9 @@ maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creati
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3255,7 +3401,9 @@ maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3271,7 +3419,9 @@ maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 
@@ -3285,7 +3435,9 @@ maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
    case 'summertime':
@@ -3298,7 +3450,9 @@ maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case 'neonlight2':
@@ -3311,7 +3465,9 @@ maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.h
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case 'thewall':
@@ -3324,7 +3480,9 @@ maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
    
 case 'natural':
@@ -3337,7 +3495,9 @@ maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break 
 
 case 'carbon':
@@ -3350,7 +3510,9 @@ maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
 
 case 'pencil':
@@ -3363,7 +3525,9 @@ maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html",
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
-   db.data.users[m.sender].limit -= 1  
+   if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
    break
  
 case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas': case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': 
@@ -3439,7 +3603,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           
              let anu = await maker.textpro(link, q)
                 hanbotz.sendMessage(m.chat, { image: { url: anu }, caption: `Made by ${global.botname}` }, { quoted: m })
-                db.data.users[m.sender].limit -= 1  
+                if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
              }
              break
 
@@ -3456,7 +3622,9 @@ hanbotz.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
 if (args.length < 2) return reply(`Contoh :\n${prefix + command + ' ' + args[0]} ${global.ownername}`)
 let teds = await thiccysapi.textpro("https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html", [args[1]])
 hanbotz.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 } else {
 reply(`*Text Maker List :*\n•> glitch\n•> glow`)
 }
@@ -3473,7 +3641,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-    db.data.users[m.sender].limit -= 1  
+    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
   case 'whitebear':{
@@ -3486,7 +3656,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-    db.data.users[m.sender].limit -= 1  
+    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'thunder2':{
@@ -3499,7 +3671,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-    db.data.users[m.sender].limit -= 1  
+    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'blackpink':{
@@ -3512,7 +3686,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-    db.data.users[m.sender].limit -= 1  
+    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'neon':{
@@ -3525,7 +3701,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'matrix2':{
@@ -3538,7 +3716,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'sky':{
@@ -3551,7 +3731,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 
@@ -3565,7 +3747,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'sand':{
@@ -3578,7 +3762,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'pencil':{
@@ -3591,7 +3777,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'graffiti':{
@@ -3604,7 +3792,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'metallic':{
@@ -3617,7 +3807,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'steel':{
@@ -3630,7 +3822,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'harrypotter':{
@@ -3643,7 +3837,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'underwater':{
@@ -3656,7 +3852,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'luxury':{
@@ -3669,7 +3867,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'glue2':{
@@ -3682,7 +3882,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'fabric':{
@@ -3695,7 +3897,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'neonlight':{
@@ -3708,7 +3912,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'lava':{
@@ -3721,7 +3927,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'toxic':{
@@ -3734,7 +3942,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'ancient':{
@@ -3747,7 +3957,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'christmas2':{
@@ -3760,7 +3972,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'sci_fi':{
@@ -3773,7 +3987,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'rainbow':{
@@ -3786,7 +4002,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'classic':{
@@ -3799,7 +4017,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'watercolor2':{
@@ -3812,7 +4032,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'halloween2':{
@@ -3825,7 +4047,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'halloweenfire':{
@@ -3838,7 +4062,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'writing':{
@@ -3851,7 +4077,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'foggy':{
@@ -3864,7 +4092,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'marvel':{
@@ -3877,7 +4107,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'skeleton2':{
@@ -3890,7 +4122,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'sketch':{
@@ -3903,7 +4137,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'wonderful':{
@@ -3916,7 +4152,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'cool':{
@@ -3929,7 +4167,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'collwall':{
@@ -3942,7 +4182,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'multicolor2':{
@@ -3955,7 +4197,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'batman':{
@@ -3968,7 +4212,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'juice':{
@@ -3981,7 +4227,9 @@ let anui = await textpro(link, q)
      await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
    break
 case 'pornhub':{
@@ -3999,7 +4247,9 @@ if (!logo9) return reply(`*Contoh*: Han | Botz`)
     let anu = await textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'retro':{
@@ -4017,7 +4267,9 @@ if (!logo9) return reply(`*Contoh*: Han | Botz`)
     let anu = await textpro("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'horror':{
@@ -4035,7 +4287,9 @@ if (!logo9) return reply(`*Contoh*: Han | Botz`)
     let anu = await textpro("https://textpro.me/create-a-cinematic-horror-text-effect-1045.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case '8bit':{
@@ -4053,7 +4307,9 @@ if (!logo9) return reply(`*Contoh*: Han | Botz`)
     let anu = await textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 
@@ -4611,7 +4867,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                 let random = anu[Math.floor(Math.random() * anu.length)]
                 hanbotz.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male🙎🏻‍♂️` }, { quoted: m })
                 hanbotz.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female🙎🏻‍♀️` }, { quoted: m })
-                db.data.users[m.sender].limit -= 1  
+                if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
             }
 	    break
             case 'quotesanime': case 'quoteanime': {
@@ -4620,7 +4878,9 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
                 m.reply(`~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`)
-                db.data.users[m.sender].limit -= 1  
+                if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
             }
             break
 
@@ -5875,7 +6135,9 @@ if (isBanChat) return reply(mess.banChat)
 if (!q) return m.reply(`Kategori Apa?\n\n_List Kategori:_ #listcerpen`)
 let cerpe = await cerpen(q)
 m.reply(`• _*Title :*_ ${cerpe.title}\n• _*Author :*_ ${cerpe.author}\n• _*Category :*_ ${cerpe.kategori}\n• _*Pass Moderation :*_ ${cerpe.lolos}\n• _*Story :*_\n${cerpe.cerita}`)
-db.data.users[m.sender].limit -= 1  
+if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
 }
 break
 case 'listcerpen':
@@ -5889,7 +6151,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/faktaunik`)
                     m.reply(get_result.hasil)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'quoteilham': case 'quotesilham':
 if (isBan) return reply(mess.ban)	 			
@@ -5897,7 +6161,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/katailham`)
                     m.reply(get_result.hasil.result)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'quotebijak': case 'quotesbijak':
 if (isBan) return reply(mess.ban)	 			
@@ -5905,7 +6171,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/katabijak`)
                     m.reply(`*"${get_result.hasil.quotes}"*\n\n• *Author*: ${get_result.hasil.author}`)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'quotebacot': case 'quotesbacot':
 if (isBan) return reply(mess.ban)	 			
@@ -5913,7 +6181,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/bacot`)
                     m.reply(get_result.hasil.result)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'quotesindiran': case 'quotessindiran':
 if (isBan) return reply(mess.ban)	 			
@@ -5921,7 +6191,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/sindiran`)
                     m.reply(get_result.hasil.result)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'quotefakboy': case 'quotesfakboy':
 if (isBan) return reply(mess.ban)	 			
@@ -5929,7 +6201,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/pantunpakboy`)
                     m.reply(get_result.hasil.result)
-                    db.data.users[m.sender].limit -= 1  
+                    if (!botzz) {
+db.data.users[m.sender].limit -= 1
+} 
                     break
 case 'botz': case 'hanbotz': case 'bot': {
 	if (isBan) return reply(mess.ban)	 			
