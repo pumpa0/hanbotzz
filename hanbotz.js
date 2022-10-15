@@ -4979,18 +4979,16 @@ case 'ytmp3': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp3?url=${text}&apikey=rxking`)
-//reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
-reply(`_Lagi error cuy_`)
+let anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${text}&type=360`)
+hanbotz.sendMessage(m.chat, {audio: { url: anu.audio.audio }, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m })
             }
             break
             case 'ytmp4': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-let anu = await fetchJson(`https://viko-api.herokuapp.com/api/download/ytmp4?url=${text}&apikey=rxking`)
-//reply(`*Karena lagi error, jadi pake ini dulu ya🗿*\n\nLink > Titik tiga > Download\n\n${redd}${anu.result.url}`)//
-reply(`_Lagi error cuy_`)
+let anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${text}&type=360`)
+hanbotz.sendMessage(m.chat, {document: { url: anu.mp4.download }, mimetype: 'video/mp4', fileName: `${anu.title} (360p).mp4`}, { quoted : m })
             }
             break
             
@@ -6578,6 +6576,18 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`_Contoh:_ ${prefix}${command} https://on.soundcloud.com/2LSVA`)
 anu = await fetchJson (`https://fatiharridho.herokuapp.com/api/downloader/soundcloud?url=${text}`)
 hanbotz.sendMessage(m.chat, {document: { url: anu.result.link}, mimetype: 'audio/mpeg', fileName: `${anu.result.judul}`}, { quoted : m })
+}
+break
+case 'instagram': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) throw 'Masukkan Query Link!'
+anu = await fetchJson (`https://api.akuari.my.id/downloader/igdl?link=${text}`)
+if (anu.respon.type === "GraphVideo") {
+hanbotz.sendMessage(m.chat, { video: { url: anu.respon.link } caption: `HanBotz` }, { quoted: m })
+} else if (anu.respon.type === "GraphImage") {
+hanbotz.sendMessage(m.chat, { image: { url: anu.respon.link }, caption: `HanBotz` }, { quoted: m })
+}
 }
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
