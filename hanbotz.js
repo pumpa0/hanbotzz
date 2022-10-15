@@ -680,6 +680,8 @@ if (botzz) {
         if (isgclink) return
         if (isAdmins) return
         if (isCreator) return
+reply(`Makasih`)
+await sleep(1000)
 hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 }
@@ -4980,7 +4982,8 @@ case 'ytmp3': {
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${text}&type=360`)
-hanbotz.sendMessage(m.chat, {audio: { url: anu.audio.audio }, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m })
+// hanbotz.sendMessage(m.chat, {audio: { url: anu.audio.audio }, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m })
+reply (`_Lagi error cuy_`)
             }
             break
             case 'ytmp4': {
@@ -4988,7 +4991,8 @@ hanbotz.sendMessage(m.chat, {audio: { url: anu.audio.audio }, mimetype: 'audio/m
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 let anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${text}&type=360`)
-hanbotz.sendMessage(m.chat, {document: { url: anu.mp4.download }, mimetype: 'video/mp4', fileName: `${anu.title} (360p).mp4`}, { quoted : m })
+// hanbotz.sendMessage(m.chat, {document: { url: anu.mp4.download }, mimetype: 'video/mp4', fileName: `${anu.title} (360p).mp4`}, { quoted : m })
+reply (`_Lagi error cuy_`)
             }
             break
             
@@ -5640,6 +5644,10 @@ reply(`
 
 • *${prefix}tiktokaudio* : mengunduh audio tiktok
 > _${prefix}tiktokaudio [url]_
+
+• *${prefix}instagram* : mengunduh video / gambar ig
+> _${prefix}instagram [url]_
+~ tidak support story, highlight, slide
 
 • *${prefix}twitter* : mengunduh video twitter
 > _${prefix}twitter [url]_
