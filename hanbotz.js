@@ -6598,7 +6598,7 @@ hanbotz.sendMessage(m.chat, { image: { url: anu.respon.link }, caption: `HanBotz
 }
 }
 break
-case prefix+'ytmp3':
+case 'ytmp3': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
@@ -6609,9 +6609,10 @@ if (isBanChat) return reply(mess.banChat)
 					hanbotz.sendMessage(from, { document: { url: data[0].link }, fileName: `${data[0].judul}.mp3`, mimetype: 'audio/mp3' }, { quoted: m })
 					  }
 					  )
+					}
               break
 
-case prefix+'ytmp4': case prefix+'mp4':
+case 'ytmp4': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
@@ -6622,6 +6623,7 @@ if (isBanChat) return reply(mess.banChat)
 			      var capt = (`Title : ${data[0].judul}`)
 			      hanbotz.sendMessage(from, {caption: capt, video: {url: data[0].link}}, {quoted: m})
 			    }).catch(() => reply(mess.error))
+			}
 			    break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
