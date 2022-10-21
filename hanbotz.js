@@ -35,6 +35,7 @@ const { pinterest } = require("./lib/pinterest")
 const toHur = require('@develoka/angka-terbilang-js')
 const { hentai } = require('./lib/scraper2.js')
 let { wikimedia } = require('./lib/scraper')
+const { y2mateA, y2mateV } = require('./lib/y2mate')
 
 //Database omther\\
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
@@ -4929,10 +4930,9 @@ break
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-              //  let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-              //  reply (anu.result.server1.video)
               let ana = await fetchJson(`https://cakrayp.herokuapp.com/api/ttdownloader?url=${text}&sender_device=pc&apikey=cakrayp24Q6`)
-              hanbotz.sendMessage(m.chat, { video: { url: ana.result.nowatermark } }, { quoted: m })
+             // hanbotz.sendMessage(m.chat, { video: { url: ana.result.nowatermark } }, { quoted: m })
+             reply(`Lagi error`)
                 }
                 break
             
@@ -4943,7 +4943,7 @@ case 'tiktokaudio': {
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
    let anu = await fetchJson(`https://viko-api.herokuapp.com/api/tiktok?apikey=rxking&url=${text}`)
-    reply(anu.result.server1.music)
+    reply(`Lagi error`)
    }
  break
 	
@@ -4977,7 +4977,7 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'ytmp3': {
+case 'ytmp3x': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
@@ -4986,7 +4986,7 @@ let anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube3?link=${t
 reply (`_Lagi error cuy_`)
             }
             break
-            case 'ytmp4': {
+            case 'ytmp4x': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
@@ -6598,6 +6598,31 @@ hanbotz.sendMessage(m.chat, { image: { url: anu.respon.link }, caption: `HanBotz
 }
 }
 break
+case prefix+'ytmp3':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+			    if (!isUrl(args[1])) return reply(mess.error)
+			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(`Link salah`)
+			    reply(mess.wait)
+				y2mateA(q).then( data => {
+					hanbotz.sendMessage(from, { document: { url: data[0].link }, fileName: `${data[0].judul}.mp3`, mimetype: 'audio/mp3' }, { quoted: m })
+					  }
+					  )
+              break
+
+case prefix+'ytmp4': case prefix+'mp4':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+			    if (!isUrl(args[1])) return reply(mess.error.Iv)
+			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(`Link salah`)
+			    reply(mess.wait)
+			    y2mateV(args[1]).then ( data => {
+			      var capt = (`Title : ${data[0].judul}`)
+			      hanbotz.sendMessage(from, {caption: capt, video: {url: data[0].link}}, {quoted: m})
+			    }).catch(() => reply(mess.error))
+			    break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
