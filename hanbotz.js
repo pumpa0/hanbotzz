@@ -6601,10 +6601,7 @@ break
 case 'ytmp3': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
-			    if (!isUrl(args[1])) return reply(mess.error)
-			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(`Link salah`)
-			    reply(mess.wait)
+			    if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 				y2mateA(q).then( data => {
 					hanbotz.sendMessage(from, { document: { url: data[0].link }, fileName: `${data[0].judul}.mp3`, mimetype: 'audio/mp3' }, { quoted: m })
 					  }
@@ -6615,9 +6612,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'ytmp4': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
-			    if (!isUrl(args[1])) return reply(mess.error.Iv)
-			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(`Link salah`)
+			    if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
 			    reply(mess.wait)
 			    y2mateV(args[1]).then ( data => {
 			      var capt = (`Title : ${data[0].judul}`)
